@@ -25,3 +25,6 @@
 - No probado PostgreSQL real, Safari/iOS/Android físico, Google Sheets autenticado, carga de producción ni configuración de proveedor.
 - No equivale a auditoría de seguridad completa, validación científica o conformidad legal.
 - El conector GitHub rechazó escritura (403); el usuario inició sesión mediante GitHub CLI. Verificado acceso de `manueleco` para completar el push sin exponer credenciales.
+- GitHub: primer push completado en `main`, commit de implementación `334ed90461ab609fa60d029e54d3fd3a6ca06638`.
+- Sites: publicación privada confirmada `succeeded`; URL registrada en `DELIVERY.md`.
+- Proyecto, Git, dependencias, base local, notas y audios copiados a la carpeta definitiva; `manage.py check` pasa desde ella.
