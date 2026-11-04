@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({ testDir: 'tests/browser', timeout: 45000, use: { baseURL: 'http://127.0.0.1:8317', headless: true, launchOptions: { executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', args: ['--autoplay-policy=no-user-gesture-required'] }, reducedMotion: 'reduce' }, reporter: 'list', outputDir: '.playwright/results' });

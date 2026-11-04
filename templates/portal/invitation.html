@@ -1,0 +1,1 @@
+{% extends 'portal/base.html' %}{% block content %}<h1>Your invitation is ready.</h1><p>This link grants membership in {{ org.name }}. It works once and expires in 3 days. Share it only with the intended person.</p><div class="link-box">{{ link }}</div><p><a href="{% url 'organization' org.pk %}">Back to organization →</a></p>{% endblock %}

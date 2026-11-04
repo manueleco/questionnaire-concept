@@ -1,0 +1,77 @@
+{
+  "id": "between-demo-1",
+  "title": "A little different. A lot to feel.",
+  "demo": true,
+  "questions": [
+    {
+      "id": "loudness",
+      "type": "rank",
+      "title": "Which version sounds loudest?",
+      "description": "Think about how loud it feels, rather than the volume setting.",
+      "direction": "Loudest \u2192 quietest",
+      "required": true,
+      "audio": true
+    },
+    {
+      "id": "clarity",
+      "type": "rank",
+      "title": "Which version sounds clearest?",
+      "description": "Listen for how distinctly you can hear the sounds in the music.",
+      "direction": "Clearest \u2192 least clear",
+      "required": true,
+      "audio": true
+    },
+    {
+      "id": "harshness",
+      "type": "rank",
+      "title": "Which version sounds harshest?",
+      "description": "Think about an abrasive or piercing quality in the sound.",
+      "direction": "Harshest \u2192 least harsh",
+      "required": true,
+      "audio": true
+    },
+    {
+      "id": "emotion",
+      "type": "rank",
+      "title": "Which expresses the most emotion?",
+      "description": "Judge how strongly the music expresses emotion, rather than how you personally feel.",
+      "direction": "Most intense \u2192 least intense",
+      "required": true,
+      "audio": true
+    },
+    {
+      "id": "reason",
+      "type": "multi",
+      "title": "What shaped that feeling?",
+      "description": "If a version felt more emotional, which qualities contributed? Choose any, or skip.",
+      "required": false,
+      "audio": false,
+      "options": [
+        {
+          "id": "aggressive",
+          "label": "Harsh / aggressive"
+        },
+        {
+          "id": "warm",
+          "label": "Warm / soft"
+        },
+        {
+          "id": "other",
+          "label": "Something else"
+        },
+        {
+          "id": "unsure",
+          "label": "Not sure"
+        }
+      ]
+    },
+    {
+      "id": "genre",
+      "type": "text",
+      "title": "What's usually in your headphones?",
+      "description": "Tell us the genres you enjoy, or anything else you noticed. Please leave out names and contact details.",
+      "required": false,
+      "audio": false
+    }
+  ]
+}

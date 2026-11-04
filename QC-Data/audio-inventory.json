@@ -1,0 +1,58 @@
+[
+  {
+    "file": "TRBFMXE149E3E18222_add_noise.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "sample_rate": "22050",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "202.004898"
+    }
+  },
+  {
+    "file": "TRBFMXE149E3E18222_apply_compression.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "sample_rate": "22050",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "202.004898"
+    }
+  },
+  {
+    "file": "TRBFMXE149E3E18222_randomly_eq.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "sample_rate": "22050",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "202.004898"
+    }
+  },
+  {
+    "file": "TRBFMXE149E3E18222_reverb_1st-baptist-nashville-balcony.mp3",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "sample_rate": "22050",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "202.004898"
+    }
+  }
+]

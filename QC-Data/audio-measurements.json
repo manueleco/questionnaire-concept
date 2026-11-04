@@ -1,0 +1,82 @@
+[
+  {
+    "key": "noise",
+    "excerpt_seconds": [
+      40,
+      60
+    ],
+    "processing": "decode and slice only; no normalization",
+    "measurement": {
+      "input_i": "-15.85",
+      "input_tp": "-0.73",
+      "input_lra": "1.90",
+      "input_thresh": "-25.85",
+      "output_i": "-23.69",
+      "output_tp": "-8.46",
+      "output_lra": "1.50",
+      "output_thresh": "-33.69",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.31"
+    }
+  },
+  {
+    "key": "compression",
+    "excerpt_seconds": [
+      40,
+      60
+    ],
+    "processing": "decode and slice only; no normalization",
+    "measurement": {
+      "input_i": "-18.46",
+      "input_tp": "-0.55",
+      "input_lra": "3.00",
+      "input_thresh": "-28.48",
+      "output_i": "-23.54",
+      "output_tp": "-5.62",
+      "output_lra": "2.50",
+      "output_thresh": "-33.56",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.46"
+    }
+  },
+  {
+    "key": "eq",
+    "excerpt_seconds": [
+      40,
+      60
+    ],
+    "processing": "decode and slice only; no normalization",
+    "measurement": {
+      "input_i": "-16.80",
+      "input_tp": "-1.46",
+      "input_lra": "2.60",
+      "input_thresh": "-26.80",
+      "output_i": "-23.39",
+      "output_tp": "-7.74",
+      "output_lra": "1.80",
+      "output_thresh": "-33.39",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.61"
+    }
+  },
+  {
+    "key": "reverb",
+    "excerpt_seconds": [
+      40,
+      60
+    ],
+    "processing": "decode and slice only; no normalization",
+    "measurement": {
+      "input_i": "-15.79",
+      "input_tp": "-1.21",
+      "input_lra": "2.80",
+      "input_thresh": "-25.79",
+      "output_i": "-23.43",
+      "output_tp": "-8.41",
+      "output_lra": "2.20",
+      "output_thresh": "-33.43",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.57"
+    }
+  }
+]
