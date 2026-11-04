@@ -107,21 +107,21 @@ dialog { background: var(--color-white); border: 1px solid var(--color-rule); bo
   .under-card { display: none; }
   .page { padding: 8px 12px 12px; }
   .card, .welcome .card { padding: 22px; }
-  
-  
-  
-  
+
+
+
+
 }
 @media (max-width: 22rem) {
   .card, .welcome .card { padding: 18px; border-radius: 20px; }
   .pill { font-size: 9px; }
   .card-head { gap: 6px; }
   .topbar { padding-inline: 16px; }
-  
-  
-  
-  
-  
+
+
+
+
+
   .welcome h2 { font-size: 30px; }
   .card > p, .welcome .card > p { font-size: 13px; }
   .player { padding: 12px; }
@@ -143,10 +143,10 @@ dialog { background: var(--color-white); border: 1px solid var(--color-rule); bo
   .bottom-dock { padding-inline: max(16px, calc((100vw - 600px) / 2)); }
 }
 @media (max-height: 680px) {
-  
-  
-  
-  
+
+
+
+
 }
 @media (prefers-reduced-motion: reduce) {
   #feed { scroll-behavior: auto; }
