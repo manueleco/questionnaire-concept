@@ -53,3 +53,5 @@ Corregido desbordamiento interno del reproductor (296 px visibles frente a 375 p
 Validación: typecheck y build correctos; 6 tests JS y 19 tests de navegador correctos, incluidos audio sincronizado, tiempos, persistencia, borrado, guía y nueve tarjetas/diálogos a 320/375/414/768 px. Pantalla táctil emulada 375×640 comprobada; iOS/Safari y Android físicos pendientes. El backend no cambia en esta revisión.
 
 Estudio trasladado a Orgs/personal/scroll-q-mpc; entorno Python y comprobación Django correctos tras reparación de rutas. Droplet elegido por coste, pendiente de contratar/desplegar. El hosting Sites continúa siendo una demo visual privada con almacenamiento del navegador.
+
+Publicación 0.4 confirmada: `1f4035fb2abe89e90689d8756f5d111d36158143`, despliegue `appgdep_6aeb6f38b3508191ab737aaf11d238b5`, estado succeeded. URL privada conservada: https://questionnaire-sound-study-meco.inventiveflag.chatgpt.site . Estudio privado actualizado y enviado en `bc3f012`, submódulo fijado a esa versión probada. Gitleaks no encontró secretos en cambios ni historial de ambos repositorios. Servidores temporales de QA detenidos al cerrar la entrega.
