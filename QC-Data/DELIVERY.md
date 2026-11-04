@@ -35,3 +35,13 @@ No se ha validado un despliegue PostgreSQL, configuración cloud, Google Sheets 
 ## Privacidad de la entrega
 
 Audios, notas originales, respuestas locales, claves y dependencias están excluidos de Git. El artefacto publicado contiene sólo el frontend compilado. El adaptador Sheets está preparado pero desconectado. No se han enviado correos ni invitaciones a terceros.
+
+## Entrega final de revisión 0.3
+
+Interfaz publicada con éxito desde `e29831b284358403ca91c30fc5bc482816afcf28`: Clear Listening, referencia Grassfeld y guía opcional. La audiencia de Sites continúa privada.
+
+Estudio separado: `https://github.com/manueleco/scroll-q-mpc` (PRIVATE), carpeta `/Users/meco/MBP Files/Gits/personales/scroll-q-mpc`. Commit inicial `9f5caff`; submódulo fijado al mismo commit de plataforma de la publicación visual. Arranque independiente probado en 8318, con base propia, un protocolo y cero respuestas. Sigue en modo demo hasta aprobar condiciones científicas y de privacidad.
+
+Gitleaks no detectó secretos en los cinco commits de plataforma ni en el commit inicial de clase; tampoco se versionaron bases, `.env` reales, notas originales o audios. Las fuentes gráficas incluidas son OFL y sus licencias acompañan los archivos. No se crearon recursos de DigitalOcean ni se desplegó el backend en Atlas.
+
+Los servidores temporales de verificación se detienen al cerrar la entrega. Para volver a ejecutar el estudio: `cd '/Users/meco/MBP Files/Gits/personales/scroll-q-mpc'` y `./scripts/manage.sh runserver 127.0.0.1:8318`. La demo web publicada permanece disponible.

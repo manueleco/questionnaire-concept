@@ -50,3 +50,5 @@
 - Usuario confirmó dos repos y creó `scroll-q-mpc`; se verificó PUBLIC y se cambió a PRIVATE según su elección antes de subir material.
 - Primera revisión de Gitleaks: tres commits, sin secretos detectados. Se reforzaron exclusiones de archivos privados; no equivale a garantía absoluta.
 - Estudiadas opciones oficiales de hosting, costes completos y requisitos operativos; no se adquirieron recursos.
+
+Cierre: publicación Grassfeld/guía confirmada como succeeded desde e29831b; GitHub público actualizado. Repositorio privado MPC inicializado y subido (9f5caff), dependencia fijada, instalación y HTTP verificados con BD independiente. Gitleaks sin hallazgos en ambos historiales; límites documentados. Se detienen los servidores de prueba, sin alterar la demo alojada.
