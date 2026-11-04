@@ -60,3 +60,7 @@ Cubren fronteras funcionales relevantes, no disponibilidad, configuración de pr
 Referencia operativa: [checklist de despliegue Django](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/).
 
 Audio importado: se conserva mediante IndexedDB en el dispositivo para reanudar la demo. No se sube al backend; la retirada local elimina también esa copia. La caducidad del borrador se comprueba al volver a abrir la aplicación, no mediante un proceso que se ejecute con el navegador cerrado.
+
+## Comprobación local del 2026-11-04
+
+`data/` tenía modo 0755 y SQLite 0644; se corrigieron a 0700 y 0600 respectivamente. No se implementó cifrado de SQLite ni se verificó FileVault. La separación entre almacenamiento de la demo estática y Django se detalla en `STORAGE-AND-LOCAL.md`.

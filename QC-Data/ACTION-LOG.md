@@ -28,3 +28,15 @@
 - GitHub: primer push completado en `main`, commit de implementación `334ed90461ab609fa60d029e54d3fd3a6ca06638`.
 - Sites: publicación privada confirmada `succeeded`; URL registrada en `DELIVERY.md`.
 - Proyecto, Git, dependencias, base local, notas y audios copiados a la carpeta definitiva; `manage.py check` pasa desde ella.
+
+## Revisión 0.2 · Layout móvil y brandbook
+
+- Inspeccionada referencia Awwwards y prototipo Velto; aplicada jerarquía de app con marca propia Quiet Current.
+- Añadidos `app-shell.css`, navegación inferior funcional, listado de progreso y tarjetas ajustadas al alto disponible. Se mantiene navegación nativa por rueda/touch; el teclado permite leer tarjetas largas.
+- Revisión visual detectó CSS no servido por la lista explícita de Django: añadido el archivo a la lista y pruebas de estilos/layout real.
+- Corregida lectura con PageDown en tarjetas largas; pruebas finales de navegación pasan a 320/414/1280 px.
+- Validación: 12 tests de navegador (8 de flujo/layout + 4 de navegación/modo estático), 14 Django, 6 JS; typecheck/build correctos. Las 4 pruebas de navegación se repitieron tras el ajuste final de teclado.
+- Contrastes de texto medidos; capturas de bienvenida, comparación y setup inspeccionadas. Pendiente móvil físico/Safari, no cubierto por Chrome responsive.
+- Permisos de `data/` y SQLite corregidos de 0755/0644 a 0700/0600. No se ha añadido cifrado ni desplegado PostgreSQL.
+- Confirmados cero administradores y cero sesiones de participantes en la base local tras pruebas. No se crearon contraseñas ni se recogieron respuestas reales.
+- Documentados brandbook, almacenamiento/local, decisiones, TODOs y límites de GDPR en QC-Data.

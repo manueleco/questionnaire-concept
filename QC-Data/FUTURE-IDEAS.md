@@ -14,3 +14,9 @@
 - Conector de Sheets con outbox, estado visible y reconciliación de borrados; sólo datasets autorizados.
 - QR generado para el enlace público del estudio cuando exista despliegue aprobado. No distribuir QR de la vista privada del autor como si fuera reclutamiento abierto.
 - Accesibilidad comprobada con lector de pantalla, teclado, zoom, iOS/Android y entornos de poca conectividad.
+
+## Tras el rediseño móvil
+
+- Llevar Quiet Current al portal administrativo con una revisión propia de formularios y tablas.
+- Validar comodidad, lectura y abandono en móviles físicos, sin prometer efectos psicológicos del color.
+- Considerar PWA e instalación sólo tras evaluar actualizaciones, caché de datos y borrado en dispositivos compartidos.

@@ -209,7 +209,7 @@ def export_csv(request, pk):
 
 @require_GET
 def frontend(request, path='index.html'):
-    if path not in ['index.html', 'app.js', 'styles.css', 'questions.json', 'portal.css']:
+    if path not in ['index.html', 'app.js', 'styles.css', 'app-shell.css', 'questions.json', 'portal.css']:
         raise Http404
     f = settings.BASE_DIR / 'dist' / path
     if not f.is_file():

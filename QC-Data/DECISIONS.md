@@ -24,3 +24,11 @@
 | D20 | No declarar “GDPR compliant” ni “5FN certificada” | Requieren definición de dependencias, configuración real, responsabilidades institucionales y revisión. Se entregan controles y evidencia, con límites explícitos. |
 
 Fuentes de arquitectura: [escalado de Django](https://docs.djangoproject.com/en/5.2/faq/general/#does-django-scale), [soporte de versiones](https://www.djangoproject.com/download/), [React y frameworks](https://react.dev/learn/creating-a-react-app), [Laravel deployment](https://laravel.com/docs/12.x/deployment). Fecha de consulta: 2026-11-04.
+
+## 2026-11-04 · Quiet Current y navegación móvil
+
+- Adoptar petróleo/menta/neutros, tipografía del sistema y botones tinta sin sombra dura; brandbook en `BRANDBOOK.md`. Comodidad es hipótesis de UX, no una afirmación psicológica universal.
+- Cuatro destinos inferiores: Home, Listen, Progress, Info. Progreso real y revisión de pasos desbloqueados; no premios por rapidez.
+- Secciones del alto disponible con snap nativo y tarjetas largas desplazables dentro de él. Evita que una tarjeta alta elimine el siguiente punto de ajuste; navegación explícita al inicio de la tarjeta.
+- Conservar backend local SQLite y futuro PostgreSQL. La publicación Sites sólo entrega frontend, sin centralizar respuestas. No declarar cumplimiento GDPR ni cifrado de SQLite.
+- Mantener frontend servido mediante lista explícita de archivos; añadir únicamente `app-shell.css`. Restringir permisos locales de `data/` y SQLite.

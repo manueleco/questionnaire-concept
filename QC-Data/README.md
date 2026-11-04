@@ -36,10 +36,12 @@ Abrir http://127.0.0.1:8317 para el cuestionario y http://127.0.0.1:8317/portal/
 
 En la aplicación local: **About the demo → Your supplied audio → elegir 3 versiones → Use these samples**. También puedes importar tres archivos propios. Todo se decodifica en el navegador. Los cuatro originales y sus extractos están en `data/stimuli/`, excluidos de Git y de la publicación.
 
-La demo pública utiliza una composición sintética creada en código. No contiene las grabaciones aportadas. Los originales duran unos 202 s, mono, 22.050 Hz. Los extractos locales abarcan 40–60 s y conservan sus diferencias de nivel: no son estímulos validados de saturación.
+La demo privada publicada utiliza una composición sintética creada en código. No contiene las grabaciones aportadas. Los originales duran unos 202 s, mono, 22.050 Hz. Los extractos locales abarcan 40–60 s y conservan sus diferencias de nivel: no son estímulos validados de saturación.
 
 ## Mapa de contexto
 
+- `BRANDBOOK.md`: identidad, paleta, tipografía, componentes y navegación móvil.
+- `STORAGE-AND-LOCAL.md`: ubicación real de datos, acceso al portal y arranque local.
 - `CONTEXT.md`: requisitos y cambios de alcance.
 - `DECISIONS.md`: decisiones con motivos y alternativas.
 - `RESEARCH-PROTOCOL.md`: diseño experimental, variables y análisis.

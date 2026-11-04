@@ -34,3 +34,7 @@ Copia local del documento y de cuatro versiones de TRBFMXE149E3E18222: ruido, co
 ## Preferencias operativas
 
 Documentación en español, interfaz inicial en inglés por el público académico. Priorizar acciones pequeñas directas; ofrecer pasos manuales para credenciales o transferencias costosas. Nunca pedir secretos por chat. No enviar invitaciones, emails ni mensajes a ISMIR sin instrucción explícita.
+
+## Revisión móvil — 2026-11-04
+
+El usuario solicita tomar VELTO Fintech App Concept como referencia de layout, con identidad propia, brandbook editable, navegación inferior tipo app social, botones más familiares y snap fiable. También pide precisión sobre almacenamiento, GDPR, administración y arranque local. Se mantienen Django/React y la ubicación expresamente elegida; no se migra de carpeta por la preferencia general de repositorios.

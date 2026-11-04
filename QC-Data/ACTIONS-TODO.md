@@ -16,6 +16,11 @@
 - [x] Controles CSRF, validación, cabeceras, límites y tests de roles/aislamiento.
 - [x] Documentación de contexto, decisiones, normalización, investigación y privacidad.
 
+- [x] Brandbook propio, botones simplificados y navegación inferior con cuatro acciones funcionales.
+- [x] Ajuste de tarjetas al viewport, scroll nativo y revisión desde Progreso.
+- [x] Documentación explícita de almacenamiento navegador/SQLite/PostgreSQL y acceso local.
+- [x] Permisos locales de carpeta de datos y SQLite restringidos al propietario.
+
 ## Antes del piloto científico
 
 - [ ] Cerrar pregunta: saturación o compresión; emoción percibida o sentida; variable primaria.
