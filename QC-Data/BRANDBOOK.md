@@ -1,4 +1,4 @@
-# Scroll Questionnaire · Brandbook 0.3
+# Scroll Questionnaire · Brandbook 0.4
 
 Fecha: 2026-11-04. Dirección vigente: **Clear Listening** (sustituye Quiet Current por petición del usuario). Documento editable y fuente de decisiones visuales del producto; los tokens ejecutables de la experiencia participante están en `public/app-shell.css`.
 
@@ -36,9 +36,9 @@ Texto normal: objetivo WCAG AA 4.5:1. Foco/indicadores esenciales: 3:1. Las lín
 
 ## Tipografía e iconos
 
-Titulares: Barlow Condensed ExtraBold, bajo SIL OFL; cuerpo: Manrope variable, bajo SIL OFL. Ambas se sirven desde `public/fonts/`, sin solicitudes a Google Fonts desde el navegador del participante. Las licencias acompañan los archivos. Fuente de distribución: repositorio oficial [google/fonts](https://github.com/google/fonts). Fuentes de reserva del sistema si no cargan. No se utiliza Right Grotesk, la tipografía comercial observada en Grassfeld.
+Firma y bienvenida: Barlow Condensed ExtraBold, bajo SIL OFL; preguntas y cuerpo: Manrope variable, bajo SIL OFL. Ambas se sirven desde `public/fonts/`, sin solicitudes a Google Fonts desde el navegador del participante. Las licencias acompañan los archivos. Fuente de distribución: repositorio oficial [google/fonts](https://github.com/google/fonts). Fuentes de reserva del sistema si no cargan. No se utiliza Right Grotesk, la tipografía comercial observada en Grassfeld.
 
-Titulares de preguntas 34–46 px, bienvenida 44–64 px, cuerpo 14–15 px, botones 14 px, auxiliares 10–12 px. Las preguntas conservan prioridad sobre instrucciones y estado. En pantallas pequeñas se reduce espacio ornamental antes de reducir legibilidad.
+Titulares de preguntas 24–30 px, bienvenida 36–52 px, cuerpo 14–15 px, botones 14 px, auxiliares 10–12 px. Las preguntas conservan prioridad sobre instrucciones y estado. En pantallas pequeñas se reduce espacio ornamental antes de reducir legibilidad.
 
 Iconos SVG de trazo de 1.7 px, vista 24×24: casa, auriculares, progreso e información. Mostrar siempre etiquetas, sin depender sólo de iconos. No mezclar emojis coloridos ni bibliotecas de estilos distintos en navegación.
 
@@ -46,7 +46,7 @@ Iconos SVG de trazo de 1.7 px, vista 24×24: casa, auriculares, progreso e infor
 
 - **CTA:** fondo negro, texto blanco, radio 12 px, altura mínima 48 px; hover azul oscuro, presión sutil 0.98, sin sombra dura ni efecto 3D. Cargando: etiqueta explícita y deshabilitado; error: mensaje contiguo y reintento. Foco visible de 3 px.
 - **Botón secundario:** fondo gris verdoso, radio 12 px, sin competir con la acción principal.
-- **Tarjeta:** fondo gris muy claro para preguntas y azul claro para bienvenida, radio 28–32 px, sin sombra ni contorno ornamental, padding 18–30 px. Tarjetas A/B/C y sus opciones son equivalentes visualmente.
+- **Tarjeta:** fondo blanco para preguntas y azul claro para bienvenida, radio 20 px en móvil, sin sombra ni contorno ornamental, padding 18–30 px. Tarjetas A/B/C y sus opciones son equivalentes visualmente.
 - **Barra inferior:** cuatro destinos, alto táctil mínimo 50 px por tab. Inicio y Escucha navegan; Progreso abre lista de pasos; Info abre explicación/privacidad/audio. No se muestran como pestañas seleccionadas los diálogos temporales. Margen seguro inferior del dispositivo.
 - **Progreso:** posición en el recorrido y número real de preguntas contestadas, sin confundir visitas con respuestas. Preguntas futuras deshabilitadas hasta completar el paso actual.
 - **Campos:** etiqueta visible, fondo suave, radio 12 px, mensajes concretos. «Cannot judge» y «No difference» son respuestas legítimas; no degradarlas visualmente.
@@ -55,7 +55,7 @@ Iconos SVG de trazo de 1.7 px, vista 24×24: casa, auriculares, progreso e infor
 
 App a pantalla disponible, sin marco de móvil artificial. En móvil: cabecera compacta, una tarjeta y dock inferior persistente. En escritorio: contexto y recorrido a la izquierda, pregunta central y progreso lateral; navegación inferior equivalente.
 
-Cada sección mide el alto disponible entre cabecera y dock. `scroll-snap-type: y mandatory`, `scroll-snap-align: start` y `scroll-snap-stop: always`. Tarjetas cortas centradas; largas dentro del mismo espacio, con desplazamiento interno nativo y encadenamiento al feed al llegar al borde. No se interceptan gestos táctiles ni la rueda. Los botones de navegación llevan al inicio de la tarjeta de destino; las respuestas permanecen guardadas.
+Cada sección mide el alto disponible entre cabecera y dock. `scroll-snap-type: y mandatory`, `scroll-snap-align: start` y `scroll-snap-stop: always`. Bienvenida centrada y preguntas alineadas arriba en móvil; tarjetas largas dentro del mismo espacio, con desplazamiento interno nativo y encadenamiento al feed al llegar al borde. No se interceptan gestos táctiles ni la rueda. Los botones de navegación llevan al inicio de la tarjeta de destino; las respuestas permanecen guardadas.
 
 Se puede avanzar con el botón, scroll o teclado sin que responder dispare un salto automático. Los pasos sin desbloquear no aparecen en el feed. El usuario puede revisar respuestas. `prefers-reduced-motion` elimina desplazamiento animado y transformaciones. El audio se pausa fuera de preguntas auditivas, al abrir información/progreso o al ocultar la pestaña.
 
@@ -72,3 +72,9 @@ Validación: capturas y recorrido de navegador en 320/375/414/768/1280 px; naveg
 ## Guía corta
 
 Guía opcional de tres pasos: menú inferior; responder y desplazarse; reproducir/cambiar A/B/C. Disponible en bienvenida y en Info. Puede omitirse, cerrarse con Escape y reabrirse. No solicita datos ni reproduce audio; los timers de respuesta excluyen su apertura. Sin bloqueo de entrada, ventanas sucesivas automáticas ni recompensas por completarla.
+
+## Revisión móvil 0.4
+
+Reducir densidad: una frase de bienvenida, ilustración pequeña (omitida en pantallas bajas), títulos de pregunta más tranquilos y guía opcional. Eliminar las flechas duplicadas del dock, conservar estado de guardado legible y cuatro destinos con etiquetas. El CTA de pregunta permanece accesible con posición sticky dentro de la tarjeta.
+
+El reproductor usa `min-width: 0` y barras flexibles: no depender del recorte horizontal de la página. Regresión observada antes del arreglo: tarjeta de audio con clientWidth 296 y scrollWidth 375 a viewport 320. Verificar dimensiones internas de todas las tarjetas y diálogos, además de la raíz. Opciones de texto largo pueden envolver para conservar accesibilidad y autoría flexible; no truncar respuestas.

@@ -39,3 +39,10 @@ Fuentes de arquitectura: [escalado de Django](https://docs.djangoproject.com/en/
 - Manifiesto importable con validación, idempotencia e inmutabilidad; SQLite local separado mediante `SCROLL_DATA_DIR`.
 - Grassfeld sustituye la dirección de Quiet Current. Clear Listening usa titulares compactos, panel azul claro y guía opcional de tres pasos. Fuentes OFL autohospedadas; no imágenes ni fuentes comerciales copiadas.
 - Hosting: recomendación documentada en HOSTING-OPTIONS; ninguna compra ni recurso cloud creado. El presupuesto completo incluye caché/almacenamiento, no sólo el contenedor.
+
+## 2026-11-04 · Coste y claridad móvil
+
+- Droplet elegido por el usuario; App Platform queda como alternativa futura, no recomendación activa. Sin contratar servicios.
+- Orgs/personal para ambos repositorios y futuros trabajos de este contexto.
+- UI 0.4: preguntas sobrias, menos ornamento y redundancia, dock compacto y CTA accesible en tarjetas largas.
+- Corregir el mínimo intrínseco de la waveform; comprobar scrollWidth por tarjeta y diálogo, no sólo por documento.

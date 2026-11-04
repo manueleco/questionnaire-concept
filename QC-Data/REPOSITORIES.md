@@ -20,3 +20,10 @@ El estudio declara organización, estudio, protocolo y preguntas en JSON. `manag
 `.env.example` es una plantilla de nombres y valores ficticios; Django no carga `.env` automáticamente. `.gitignore` excluye datos, exportaciones, claves privadas, credenciales de servicio y audio. No es una garantía: antes de publicar, revisar archivos indexados e historial con `gitleaks git --redact --no-banner --log-opts='--all' .`. En la revisión inicial, Gitleaks no encontró secretos en los tres commits existentes. Registrar de nuevo la comprobación al cerrar la separación.
 
 El repo público conserva documentación general del caso MPC como ejemplo de investigación. El estudio privado es la autoridad de su protocolo operativo y aprobaciones. Cualquier resultado público futuro debe pasar por revisión de anonimización, licencia y autorización.
+
+## Ubicación local vigente
+
+- Plataforma: `/Users/meco/MBP Files/Orgs/personal/scroll-questionnaire`.
+- Estudio: `/Users/meco/MBP Files/Orgs/personal/scroll-q-mpc`.
+
+Traslado autorizado por la preferencia explícita de trabajar en Orgs. Cada carpeta conserva su `.git`; `platform/` sigue siendo submódulo. Datos y entornos locales se conservaron, sin copiarlos a Git.

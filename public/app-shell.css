@@ -27,8 +27,8 @@
   --color-headphone: #78a5d5;
   --color-headphone-dark: #4676aa;
   --radius: 26px;
-  --header-height: 64px;
-  --dock-height: calc(118px + env(safe-area-inset-bottom, 0px));
+  --header-height: 56px;
+  --dock-height: calc(96px + env(safe-area-inset-bottom, 0px));
 }
 body { height: 100dvh; overflow-y: clip; font-size: 15px; }
 .topbar { height: var(--header-height); margin: 0; padding: 0 24px; background: var(--color-paper); border: 0; }
@@ -51,11 +51,6 @@ h2 { font-size: clamp(27px, 2.7vw, 36px); letter-spacing: -.045em; line-height: 
 .welcome .card > p { font-size: 14px; }
 .welcome .meta-row { margin: 20px 0; gap: 8px 16px; font-size: 11px; }
 .welcome .card > .subtle-note, .card .subtle-note { margin-top: 14px; margin-bottom: 0; font-size: 10px; }
-
-
-
-
-
 
 .primary { background: var(--color-ink); color: var(--color-white); border-radius: 12px; box-shadow: none; min-height: 48px; padding: 12px 20px; font-size: 14px; font-weight: 600; transition: background 140ms, transform 140ms; }
 .primary:hover { background: var(--color-accent-deep); box-shadow: none; transform: none; }
@@ -81,9 +76,9 @@ select, input[type=text], textarea { font-size: 16px; border-radius: 12px; backg
 .check { font-size: 12px; line-height: 1.5; }
 .finish-mark { color: var(--color-accent); font-size: 48px; }
 .bottom-dock { height: var(--dock-height); padding: 0 16px env(safe-area-inset-bottom, 0px); background: var(--color-paper); position: relative; z-index: 2; }
-.session-strip { height: 46px; max-width: 600px; margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.session-strip { height: 28px; max-width: 600px; margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 #save-status { font-size: 9px; color: var(--color-muted); line-height: 1.2; }
-.step-controls { display: flex; gap: 4px; align-items: center; flex-shrink: 0; }
+.step-controls { display: none; gap: 4px; align-items: center; flex-shrink: 0; }
 #bottom-hint { display: none; }
 .step-controls button { min-height: 44px; height: 44px; min-width: 44px; padding: 0; font-size: 18px; border-radius: 8px; }
 .mobile-nav { height: 64px; max-width: 600px; margin: auto; padding: 5px; background: var(--color-white); border: 1px solid var(--color-rule); border-radius: 22px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; box-shadow: 0 4px 20px var(--color-shadow); }
@@ -108,19 +103,12 @@ dialog { background: var(--color-white); border: 1px solid var(--color-rule); bo
   .page { padding: 8px 12px 12px; }
   .card, .welcome .card { padding: 22px; }
 
-
-
-
 }
 @media (max-width: 22rem) {
   .card, .welcome .card { padding: 18px; border-radius: 20px; }
   .pill { font-size: 9px; }
   .card-head { gap: 6px; }
   .topbar { padding-inline: 16px; }
-
-
-
-
 
   .welcome h2 { font-size: 30px; }
   .card > p, .welcome .card > p { font-size: 13px; }
@@ -142,12 +130,7 @@ dialog { background: var(--color-white); border: 1px solid var(--color-rule); bo
   .progress-rail { display: flex; }
   .bottom-dock { padding-inline: max(16px, calc((100vw - 600px) / 2)); }
 }
-@media (max-height: 680px) {
 
-
-
-
-}
 @media (prefers-reduced-motion: reduce) {
   #feed { scroll-behavior: auto; }
   .primary:active { transform: none; }
@@ -227,4 +210,66 @@ h2 { font-size: clamp(34px, 3.4vw, 46px); line-height: 1; }
 @media (max-height: 680px) {
   .listening-banner { height: 72px; }
   .headphone-art { height: 70px; }
+}
+
+/* Mobile reading surface: one question, one task, restrained chrome.
+   Intrinsic sizing is fixed at the source; card overflow is not concealed. */
+#feed, .page, .card, .player, .answer-fieldset, .field-grid > *, .transport, .waveform { min-width: 0; }
+.card, dialog { overflow-wrap: anywhere; }
+.card { background: var(--color-white); }
+.card h2 { font-family: var(--font-body); font-weight: 700; font-size: clamp(24px, 2.6vw, 30px); line-height: 1.2; letter-spacing: -.035em; }
+.card-head { margin-bottom: 16px; }
+.card > p { font-size: 14px; line-height: 1.5; }
+.card .helper:empty { display: none; }
+.player { background: var(--color-surface); margin: 18px 0; padding: 14px; border-radius: 16px; }
+.player-top { gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.audio-buttons { gap: 8px; }
+.version { height: 44px; background: var(--color-white); }
+.transport { gap: 12px; margin-top: 12px; }
+.waveform { gap: 2px; }
+.waveform i { min-width: 0; flex: 1 1 3px; max-width: 3px; }
+.time { flex-shrink: 0; }
+.player-caption { margin-top: 8px; }
+.answer-fieldset { width: 100%; }
+.rank-choice { min-height: 48px; padding: 10px 8px; }
+.alternatives { margin: 8px 0 0; justify-content: flex-start; }
+.alternatives button { border-color: var(--color-transparent); text-decoration: underline; text-underline-offset: 3px; padding: 8px; }
+.alternatives button[aria-pressed=true] { border-color: var(--color-accent); text-decoration: none; }
+.continue-row { gap: 10px; }
+.continue-row .primary { flex: 1; }
+.continue-row > span { flex-shrink: 0; }
+.reason-options button { max-width: 100%; white-space: normal; text-align: left; border-radius: 12px; }
+select, textarea, input[type=text], input[type=file] { min-width: 0; max-width: 100%; }
+.welcome .card { text-align: left; }
+.welcome .card h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(38px, 5vw, 52px); line-height: 1.02; letter-spacing: -.015em; margin: 8px 0 18px; }
+.welcome .card-head { margin-bottom: 16px; }
+.listening-banner { justify-content: flex-start; height: 60px; margin: 0 0 12px; }
+.headphone-art { height: 60px; width: 72px; }
+.welcome .meta-row { justify-content: flex-start; margin: 18px 0; font-size: 11px; }
+.guide-link { display: flex; width: 100%; font-size: 12px; margin-top: 8px; }
+.welcome .card > .subtle-note { text-align: center; font-size: 10px; line-height: 1.6; }
+.mobile-nav { background: var(--color-white); border-radius: 0; padding: 4px 0; }
+.mobile-nav button[aria-current=page] { background: var(--color-transparent); color: var(--color-accent-deep); }
+#save-status { font-size: 10px; }
+.quick-guide h2 { font-family: var(--font-body); font-size: 26px; font-weight: 700; line-height: 1.2; }
+@media (max-width: 39.99rem) {
+  .topbar { padding-inline: 20px; }
+  .brand { font-size: 30px; }
+  #about { background: var(--color-transparent); font-size: 11px; padding-inline: 0; }
+  .page { justify-content: flex-start; padding: 12px 12px 8px; }
+  .card, .welcome .card { padding: 18px; border-radius: 20px; }
+  .welcome { justify-content: center; }
+  .card-head { margin-bottom: 10px; }
+  .player { margin-block: 14px; }
+  .player-caption { display: none; }
+  .card > p { margin-bottom: 14px; }
+  .card .helper { margin: 8px 0 0; line-height: 1.5; font-size: 11px; }
+  .continue-row { margin-top: 10px; position: sticky; bottom: 0; z-index: 1; padding-block: 8px; background: var(--color-white); }
+  .bottom-dock { padding-inline: 20px; }
+  .session-strip { justify-content: center; }
+  dialog { max-width: calc(100vw - 24px); padding: 20px; }
+}
+@media (max-height: 680px) and (max-width: 39.99rem) {
+  .welcome .listening-banner { display: none; }
+  .welcome .card h2 { font-size: 36px; }
 }

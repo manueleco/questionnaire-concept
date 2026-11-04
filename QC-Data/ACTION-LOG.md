@@ -52,3 +52,9 @@
 - Estudiadas opciones oficiales de hosting, costes completos y requisitos operativos; no se adquirieron recursos.
 
 Cierre: publicación Grassfeld/guía confirmada como succeeded desde e29831b; GitHub público actualizado. Repositorio privado MPC inicializado y subido (9f5caff), dependencia fijada, instalación y HTTP verificados con BD independiente. Gitleaks sin hallazgos en ambos historiales; límites documentados. Se detienen los servidores de prueba, sin alterar la demo alojada.
+
+## 2026-11-04 · Revisión móvil y traslado
+
+Movido estudio completo a Orgs/personal/scroll-q-mpc, reparadas rutas absolutas del venv; Django check, pip y referencia del submódulo funcionan. Reproducido desbordamiento de 79 px en las cuatro tarjetas auditivas a 320 px. Ajustada flexibilidad de la waveform y simplificada presentación móvil. Añadidas regresiones internas para las nueve tarjetas, diálogos y pantalla táctil corta. Hosting actualizado a Droplet por petición explícita.
+
+Verificación final de UI 0.4: typecheck/build correctos, 6 tests JS y 19 de navegador aprobados. Se corrigió el selector de la prueba de guía después de simplificar su texto. Capturas bajo `.playwright/`, excluidas de Git.

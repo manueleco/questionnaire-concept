@@ -38,3 +38,9 @@ Documentación en español, interfaz inicial en inglés por el público académi
 ## Revisión móvil — 2026-11-04
 
 El usuario solicita tomar VELTO Fintech App Concept como referencia de layout, con identidad propia, brandbook editable, navegación inferior tipo app social, botones más familiares y snap fiable. También pide precisión sobre almacenamiento, GDPR, administración y arranque local. Se mantienen Django/React y la ubicación expresamente elegida; no se migra de carpeta por la preferencia general de repositorios.
+
+## Ubicación y prioridad actual — 2026-11-04
+
+El usuario pide trabajar en `Orgs` en general. Plataforma y estudio quedan como carpetas hermanas bajo `/Users/meco/MBP Files/Orgs/personal/`: `scroll-questionnaire` y `scroll-q-mpc`. El estudio se traslada desde Gits/personales conservando Git, entorno y datos locales. Coste prioritario: Droplet seleccionado; infraestructura pendiente.
+
+Feedback UI: saturación visual, poca invitación a responder y desbordamiento horizontal interno. Revisión móvil 0.4 reduce adornos, usa títulos Manrope y corrige el ancho del reproductor.

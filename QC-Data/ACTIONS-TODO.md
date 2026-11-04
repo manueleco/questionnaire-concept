@@ -38,7 +38,8 @@
 
 ## Antes de producción reutilizable
 
-- [ ] Elegir hosting Django y PostgreSQL/Redis, región, DPA y copias.
+- [x] Elegir Droplet por prioridad de coste.
+- [ ] Concretar región/tamaño/presupuesto de Droplet, dominio, DPA y copias; desplegar Django/PostgreSQL/Redis y medir carga.
 - [ ] Probar migraciones, concurrencia y aislamiento en PostgreSQL.
 - [ ] MFA/SSO, recuperación de cuenta, revocación de invitaciones y sesiones.
 - [ ] Configurar retención periódica y restauración con borrados; verificar copias externas.

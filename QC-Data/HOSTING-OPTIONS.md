@@ -1,10 +1,12 @@
 # Hosting del piloto y evolución
 
-Revisión: 2026-11-04. Recomendación, no compra ni despliegue autorizado. Ningún recurso de pago se ha creado.
+Revisión: 2026-11-04. Decisión de arquitectura, pendiente de contratar y desplegar. Ningún recurso de pago se ha creado.
 
-## Recomendación
+## Decisión vigente: Droplet por coste
 
-Preferir **App Platform + PostgreSQL administrado** si el presupuesto permite aproximadamente US$50–65/mes antes de impuestos y extras para un piloto administrado. Prioriza mantenimiento sencillo. Si el coste es determinante, un Droplet dedicado de 2 GiB puede ser un punto de partida económico para medir el piloto, con mayor responsabilidad operativa. La capacidad real requiere prueba de carga; no prometer un número de participantes por plan.
+El usuario prioriza reducir gasto y elige **Droplet**. Esta decisión sustituye la recomendación inicial de App Platform por mantenimiento. Proponer una sola máquina para Django, PostgreSQL y Redis, con usuarios/servicios separados, proxy HTTPS y datos fuera del directorio de releases. No añadir servicios administrados por defecto. Un Droplet de 2 GiB es candidato inicial sujeto a una prueba de carga, no una capacidad garantizada.
+
+Antes de contratar: confirmar región UE, tamaño, presupuesto total, dominio y copias externas. El almacenamiento de audio y backups se dimensionará por volumen real; Spaces es una opción, no una compra obligatoria. Conservar PostgreSQL como fuente de datos y poder extraerlo a un servicio separado cuando las métricas lo justifiquen. La prioridad de coste no elimina tareas de parches, monitorización y restauración. No hay Droplet creado ni respuestas de participantes alojadas en DigitalOcean.
 
 | Alternativa | Ventaja | Coste orientativo y compromiso |
 |---|---|---|

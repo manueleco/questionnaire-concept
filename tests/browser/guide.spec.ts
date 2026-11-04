@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('short guide closes, advances and can be reopened from Info', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto('/');
-  await page.getByRole('button', { name: 'First time? Take a quick tour' }).click();
+  await page.getByRole('button', { name: 'Take a quick tour' }).click();
   const guide = page.locator('.quick-guide');
   await expect(guide).toBeVisible();
   await expect(guide.getByRole('heading')).toHaveText('Your menu is down here.');
