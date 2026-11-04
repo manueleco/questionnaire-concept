@@ -40,6 +40,8 @@ La demo privada publicada utiliza una composición sintética creada en código.
 
 ## Mapa de contexto
 
+- `REPOSITORIES.md`: separación plataforma/estudio y versiones fijadas.
+- `HOSTING-OPTIONS.md`: Atlas/CloudPanel, Droplets y App Platform, costes y límites.
 - `BRANDBOOK.md`: identidad, paleta, tipografía, componentes y navegación móvil.
 - `STORAGE-AND-LOCAL.md`: ubicación real de datos, acceso al portal y arranque local.
 - `CONTEXT.md`: requisitos y cambios de alcance.

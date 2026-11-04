@@ -34,3 +34,7 @@ El protocolo estático de Sites usa `public/questions.json`. Editarlo cambia la 
 Una pregunta debe medir una sola dimensión. Evitar “más claro y menos áspero”, preguntas con presuposición y opciones que sólo admiten la hipótesis. Incluir incertidumbre cuando tenga sentido. Marcar campos opcionales explícitamente. No usar el tiempo de respuesta como competición.
 
 La configuración actual comparte un bloque de audio entre preguntas; se necesita un modelo de ensayos para estudios con varias canciones. No duplicar preguntas a mano para simular aleatorización de pistas en producción.
+
+## Estudios en repositorios separados
+
+`manage.py import_study /ruta/study/manifest.json [--owner TU_USUARIO]` admite manifiestos de esquema 1 en modo demo. Incluyen `organization` (UUID/nombre), `study` (UUID/título/retención), `protocol` (UUID/versión/demo=true/consent_version) y `questions` con el formato declarativo habitual. Valida antes de publicar, usa transacción y rechaza cambios sobre el mismo protocolo. El repositorio privado MPC contiene un ejemplo ejecutable. La aprobación científica y el modo real son trabajos separados.

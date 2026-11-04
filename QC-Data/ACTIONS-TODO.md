@@ -21,6 +21,10 @@
 - [x] Documentación explícita de almacenamiento navegador/SQLite/PostgreSQL y acceso local.
 - [x] Permisos locales de carpeta de datos y SQLite restringidos al propietario.
 
+- [x] Referencia Grassfeld aplicada y guía corta opcional de tres pasos.
+- [x] Importador de estudios declarativos e aislamiento de carpeta de datos.
+- [x] Estructura de dos repos aceptada; detalle en REPOSITORIES.
+
 ## Antes del piloto científico
 
 - [ ] Cerrar pregunta: saturación o compresión; emoción percibida o sentida; variable primaria.

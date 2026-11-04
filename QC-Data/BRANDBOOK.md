@@ -1,10 +1,10 @@
-# Scroll Questionnaire · Brandbook 0.2
+# Scroll Questionnaire · Brandbook 0.3
 
-Fecha: 2026-11-04. Dirección: **Quiet Current**. Documento editable y fuente de decisiones visuales del producto; los tokens ejecutables de la experiencia participante están en `public/app-shell.css`.
+Fecha: 2026-11-04. Dirección vigente: **Clear Listening** (sustituye Quiet Current por petición del usuario). Documento editable y fuente de decisiones visuales del producto; los tokens ejecutables de la experiencia participante están en `public/app-shell.css`.
 
 ## Identidad y promesa
 
-Nombre completo: **Scroll Questionnaire**. Firma corta de interfaz: **scroll q.** Símbolo: `s.` dentro de un cuadrado redondeado verde petróleo. No presentar «scroll q.» como un producto distinto.
+Nombre completo: **Scroll Questionnaire**. Firma corta de interfaz: **scroll q.** Firma tipográfica compacta, negra. El icono `s.` de la revisión anterior se conserva en código pero no se muestra en la firma actual. No presentar «scroll q.» como un producto distinto.
 
 Una plataforma para escuchar, observar y responder a tu ritmo. El primer estudio trata de percepción musical; la identidad debe poder acompañar otros cuestionarios sin convertirse en una marca exclusivamente musical.
 
@@ -12,9 +12,7 @@ Personalidad: tranquila, cercana, precisa, curiosa. Lenguaje directo y respetuos
 
 ## Referencia y decisiones propias
 
-Referencia solicitada: [VELTO en Awwwards](https://www.awwwards.com/sites/velto-fintech-app-concept); se inspeccionaron el [caso de diseño](https://newminds.studio/concept-velto) y el [prototipo](https://newminds.studio/velto-app).
-
-Se toma la jerarquía de app, la información agrupada con aire y la navegación inferior de cuatro destinos con icono + etiqueta y selección sólida. No se copian marca, contenido, componentes bancarios ni marco ficticio de teléfono. Se sustituyen el verde bosque/lima por petróleo/menta suave y una superficie de respuestas blanca.
+Referencia vigente: [Grassfeld](https://www.grassfeld.com), inspeccionada visualmente en móvil. Se adoptan titulares compactos de gran peso, superficies azul claro, texto negro y menos bordes. Se crea una ilustración SVG propia de auriculares. No se copian logotipo, material visual, afirmaciones de seguridad ni tipografías comerciales del referente. La estructura de navegación inferior inspirada antes en Velto se mantiene por familiaridad.
 
 La petición de colores que inviten a participar se interpreta como una **hipótesis de comodidad y legibilidad**, no como un efecto psicológico demostrado. No hay un color que garantice confianza o mayor participación en toda cultura o población. Validar la propuesta con pruebas de comprensión, abandono, fatiga y accesibilidad; no atribuir diferencias de resultados al color sin un diseño experimental adecuado.
 
@@ -22,33 +20,33 @@ La petición de colores que inviten a participar se interpreta como una **hipót
 
 | Token | Color | Uso |
 |---|---|---|
-| `--color-paper` | `#F3F6F5` | Fondo general, descanso visual |
+| `--color-paper` | `#FFFFFF` | Fondo general, descanso visual |
 | `--color-white` | `#FFFFFF` | Superficies de pregunta y navegación |
-| `--color-ink` | `#182D2B` | Texto principal, CTA y pestaña activa |
-| `--color-muted` | `#546461` | Texto secundario legible |
-| `--color-accent` | `#21675E` | Firma, foco, progreso, confirmación |
-| `--color-accent-deep` | `#194F48` | Hover de acción principal |
-| `--color-paper-2` | `#E7EEEB` | Selección suave y etiquetas |
-| `--color-cyan` | `#C7E6DB` | Acento menta decorativo; no texto sobre blanco |
-| `--color-rule` | `#D4DFDA` | Separadores decorativos, no único indicador de estado |
-| `--color-banner` | `#173E39` | Panel de escucha de bienvenida |
+| `--color-ink` | `#202126` | Texto principal, CTA y pestaña activa |
+| `--color-muted` | `#555A64` | Texto secundario legible |
+| `--color-accent` | `#365E94` | Firma, foco, progreso, confirmación |
+| `--color-accent-deep` | `#264A77` | Hover de acción principal |
+| `--color-paper-2` | `#E7F0F5` | Selección suave y etiquetas |
+| `--color-cyan` | `#CCE0EE` | Acento azul decorativo; no texto sobre blanco |
+| `--color-rule` | `#DFE3E8` | Separadores decorativos, no único indicador de estado |
+| `--color-banner` | `#E5F1F5` | Panel de escucha de bienvenida |
 | `--color-error` | `#A32939` | Error con mensaje de texto |
 
-Contrastes calculados (luminancia relativa sRGB): tinta/blanco 14.49:1, secundario/blanco 6.23:1, secundario/fondo 5.73:1, acento/blanco 6.63:1 y error/blanco 7.16:1. Esto verifica esos pares, no una auditoría completa de accesibilidad. Texto normal: objetivo WCAG AA 4.5:1. Foco/indicadores esenciales: 3:1. Las líneas decorativas suaves no sustituyen los estados accesibles. A/B/C comparten colores, tamaño y peso: el color no codifica condición experimental. Estado seleccionado con borde/contraste y `aria-pressed`; oído con marca y etiqueta accesible. El gráfico de bienvenida es decorativo, no representa una medición de audio.
+Texto normal: objetivo WCAG AA 4.5:1. Foco/indicadores esenciales: 3:1. Las líneas decorativas suaves no sustituyen los estados accesibles. A/B/C comparten colores, tamaño y peso: el color no codifica condición experimental. Estado seleccionado con borde/contraste y `aria-pressed`; oído con marca y etiqueta accesible. La ilustración de auriculares de bienvenida es decorativa, no representa una medición de audio.
 
 ## Tipografía e iconos
 
-Familia única del sistema: `-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`. Evita descargar fuentes y se siente familiar en iOS/Android/escritorio. Monoespaciada del sistema sólo para contadores pequeños. Titulares rectos, nunca cursivos; tracking moderadamente cerrado. Texto de formularios de 16 px para evitar zoom involuntario en móviles.
+Titulares: Barlow Condensed ExtraBold, bajo SIL OFL; cuerpo: Manrope variable, bajo SIL OFL. Ambas se sirven desde `public/fonts/`, sin solicitudes a Google Fonts desde el navegador del participante. Las licencias acompañan los archivos. Fuente de distribución: repositorio oficial [google/fonts](https://github.com/google/fonts). Fuentes de reserva del sistema si no cargan. No se utiliza Right Grotesk, la tipografía comercial observada en Grassfeld.
 
-Titulares 27–44 px, cuerpo 14–15 px, botones 14 px, auxiliares 10–12 px. Las preguntas conservan prioridad sobre instrucciones y estado. En pantallas pequeñas se reduce espacio ornamental antes de reducir legibilidad.
+Titulares de preguntas 34–46 px, bienvenida 44–64 px, cuerpo 14–15 px, botones 14 px, auxiliares 10–12 px. Las preguntas conservan prioridad sobre instrucciones y estado. En pantallas pequeñas se reduce espacio ornamental antes de reducir legibilidad.
 
 Iconos SVG de trazo de 1.7 px, vista 24×24: casa, auriculares, progreso e información. Mostrar siempre etiquetas, sin depender sólo de iconos. No mezclar emojis coloridos ni bibliotecas de estilos distintos en navegación.
 
 ## Componentes
 
-- **CTA:** fondo tinta, texto blanco, radio 16 px, altura mínima 48 px; hover petróleo oscuro, presión sutil 0.98, sin sombra dura ni efecto 3D. Cargando: etiqueta explícita y deshabilitado; error: mensaje contiguo y reintento. Foco visible de 3 px.
+- **CTA:** fondo negro, texto blanco, radio 12 px, altura mínima 48 px; hover azul oscuro, presión sutil 0.98, sin sombra dura ni efecto 3D. Cargando: etiqueta explícita y deshabilitado; error: mensaje contiguo y reintento. Foco visible de 3 px.
 - **Botón secundario:** fondo gris verdoso, radio 12 px, sin competir con la acción principal.
-- **Tarjeta:** blanca, radio 26 px (20 px a 320 px), borde tenue, sombra de baja opacidad, padding 18–30 px. Tarjetas A/B/C y sus opciones son equivalentes visualmente.
+- **Tarjeta:** fondo gris muy claro para preguntas y azul claro para bienvenida, radio 28–32 px, sin sombra ni contorno ornamental, padding 18–30 px. Tarjetas A/B/C y sus opciones son equivalentes visualmente.
 - **Barra inferior:** cuatro destinos, alto táctil mínimo 50 px por tab. Inicio y Escucha navegan; Progreso abre lista de pasos; Info abre explicación/privacidad/audio. No se muestran como pestañas seleccionadas los diálogos temporales. Margen seguro inferior del dispositivo.
 - **Progreso:** posición en el recorrido y número real de preguntas contestadas, sin confundir visitas con respuestas. Preguntas futuras deshabilitadas hasta completar el paso actual.
 - **Campos:** etiqueta visible, fondo suave, radio 12 px, mensajes concretos. «Cannot judge» y «No difference» son respuestas legítimas; no degradarlas visualmente.
@@ -70,3 +68,7 @@ Celebrar completar el recorrido con una marca discreta y agradecimiento. No punt
 Este cambio aplica a la experiencia participante. El portal Django conserva su layout administrativo existente; su unificación visual queda registrada como evolución, sin alterar permisos ni edición de estudios. Para modificar la marca, actualizar primero este documento y los tokens: evitar colores nuevos aislados dentro de componentes.
 
 Validación: capturas y recorrido de navegador en 320/375/414/768/1280 px; navegación por teclado/botones/rueda, tarjetas largas, borrador, audio y envío/retirada. Pendiente: teléfonos iOS/Android físicos, lector de pantalla, zoom ampliado y prueba de comprensión con participantes. No confundir responsive en Chrome con validación nativa en todos los dispositivos.
+
+## Guía corta
+
+Guía opcional de tres pasos: menú inferior; responder y desplazarse; reproducir/cambiar A/B/C. Disponible en bienvenida y en Info. Puede omitirse, cerrarse con Escape y reabrirse. No solicita datos ni reproduce audio; los timers de respuesta excluyen su apertura. Sin bloqueo de entrada, ventanas sucesivas automáticas ni recompensas por completarla.

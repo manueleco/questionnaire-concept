@@ -22,7 +22,7 @@ El GDPR exige principios de finalidad/minimización/retención, información, ba
 | Despliegue → configuración insegura | Producción requiere secreto fuerte, hosts explícitos, PostgreSQL y Redis. Cookies Secure, redirección HTTPS, HSTS y cabeceras. |
 | Abuso → login/envío | Límites básicos de 30 intentos de auth o 60 envíos por minuto por digest de dirección; TTL 60 s. Redis compartido obligatorio en producción; dev usa memoria. |
 
-CSP limita scripts/conexiones a mismo origen; `style-src 'unsafe-inline'` se mantiene por estilos de forma de onda y administración. No analítica, píxeles, fuentes externas, grabación de micrófono ni huella de dispositivo. No persistir IP/User-Agent en tablas de estudio. El proxy/hosting puede producir logs: revisarlos, redactarlos y definir retención es tarea de despliegue, no garantía del frontend.
+CSP limita scripts/conexiones a mismo origen; `style-src 'unsafe-inline'` se mantiene por estilos de forma de onda y administración. No analítica, píxeles, peticiones a proveedores de fuentes, grabación de micrófono ni huella de dispositivo. No persistir IP/User-Agent en tablas de estudio. El proxy/hosting puede producir logs: revisarlos, redactarlos y definir retención es tarea de despliegue, no garantía del frontend.
 
 Contraseñas con validadores de Django y hashing del framework; no credenciales por defecto. No guardar tokens en repo ni chat. Separar DB user de aplicación con privilegios mínimos del usuario de migraciones.
 

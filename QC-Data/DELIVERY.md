@@ -11,7 +11,7 @@ Fecha: 2026-11-04.
 
 ## Qué puedes usar ahora
 
-La revisión 0.2 incorpora identidad Quiet Current, navegación inferior y ajuste de tarjetas al viewport; ver `BRANDBOOK.md`. Para ubicación de datos y administración, ver `STORAGE-AND-LOCAL.md`.
+La revisión 0.3 incorpora identidad Clear Listening y guía breve, navegación inferior y ajuste de tarjetas al viewport; ver `BRANDBOOK.md`. Para ubicación de datos y administración, ver `STORAGE-AND-LOCAL.md`.
 
 La demo privada permite recorrer preguntas, escuchar A/B/C sintético, importar tres archivos locales, guardar borrador, registrar tiempos, descargar y borrar datos en el navegador. La versión Django añade almacenamiento SQLite persistente, organizaciones, roles, invitaciones, creación de estudios/preguntas y exportaciones autorizadas. Incluye tus cuatro audios en la carpeta privada local y extractos comparables en duración.
 
@@ -28,7 +28,7 @@ Para crear tu acceso, ejecuta `createsuperuser` y después `seed_demo --owner TU
 
 ## Validación
 
-14 tests Django, 6 tests JS y 12 tests de navegador en la revisión 0.2. Typecheck, build, comprobación de migraciones y `manage.py check` correctos. Se probó Chrome a 320/375/414/768/1280 px, envío/retirada, temporización y reanudación del audio importado. Los tests usan datos ficticios.
+18 tests Django, 6 tests JS y 14 tests de navegador en la revisión 0.3. Typecheck, build, comprobación de migraciones y `manage.py check` correctos. Se probó Chrome a 320/375/414/768/1280 px, envío/retirada, temporización y reanudación del audio importado. Los tests usan datos ficticios.
 
 No se ha validado un despliegue PostgreSQL, configuración cloud, Google Sheets autenticado, dispositivos móviles físicos ni cumplimiento institucional. Los controles implementados no equivalen a certificación GDPR ni a validación científica. Los pasos restantes están en `ACTIONS-TODO.md`.
 

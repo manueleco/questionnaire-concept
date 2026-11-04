@@ -17,6 +17,6 @@
 
 ## Tras el rediseño móvil
 
-- Llevar Quiet Current al portal administrativo con una revisión propia de formularios y tablas.
+- Llevar Clear Listening al portal administrativo con una revisión propia de formularios y tablas.
 - Validar comodidad, lectura y abandono en móviles físicos, sin prometer efectos psicológicos del color.
 - Considerar PWA e instalación sólo tras evaluar actualizaciones, caché de datos y borrado en dispositivos compartidos.

@@ -234,3 +234,16 @@ def demo_asset(request, key):
     response = FileResponse(f.open('rb'), content_type='audio/wav')
     response['Cache-Control'] = 'no-store'
     return response
+
+
+@require_GET
+def font_asset(request, path):
+    # Explicit list: never expose arbitrary files in the project.
+    if path not in ('BarlowCondensed-ExtraBold.ttf', 'Manrope.ttf'):
+        raise Http404
+    asset = settings.BASE_DIR / 'dist' / 'fonts' / path
+    if not asset.is_file():
+        raise Http404
+    response = FileResponse(asset.open('rb'), content_type='font/ttf')
+    response['Cache-Control'] = 'public, max-age=86400'
+    return response

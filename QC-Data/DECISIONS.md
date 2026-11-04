@@ -32,3 +32,10 @@ Fuentes de arquitectura: [escalado de Django](https://docs.djangoproject.com/en/
 - Secciones del alto disponible con snap nativo y tarjetas largas desplazables dentro de él. Evita que una tarjeta alta elimine el siguiente punto de ajuste; navegación explícita al inicio de la tarjeta.
 - Conservar backend local SQLite y futuro PostgreSQL. La publicación Sites sólo entrega frontend, sin centralizar respuestas. No declarar cumplimiento GDPR ni cifrado de SQLite.
 - Mantener frontend servido mediante lista explícita de archivos; añadir únicamente `app-shell.css`. Restringir permisos locales de `data/` y SQLite.
+
+## 2026-11-04 · Separación y nueva referencia visual
+
+- Usuario elige plataforma pública + estudio MPC privado; el repo de clase fija un commit de plataforma. No se crean dos ramas permanentes de producto.
+- Manifiesto importable con validación, idempotencia e inmutabilidad; SQLite local separado mediante `SCROLL_DATA_DIR`.
+- Grassfeld sustituye la dirección de Quiet Current. Clear Listening usa titulares compactos, panel azul claro y guía opcional de tres pasos. Fuentes OFL autohospedadas; no imágenes ni fuentes comerciales copiadas.
+- Hosting: recomendación documentada en HOSTING-OPTIONS; ninguna compra ni recurso cloud creado. El presupuesto completo incluye caché/almacenamiento, no sólo el contenedor.

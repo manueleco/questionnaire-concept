@@ -40,3 +40,13 @@
 - Permisos de `data/` y SQLite corregidos de 0755/0644 a 0700/0600. No se ha añadido cifrado ni desplegado PostgreSQL.
 - Confirmados cero administradores y cero sesiones de participantes en la base local tras pruebas. No se crearon contraseñas ni se recogieron respuestas reales.
 - Documentados brandbook, almacenamiento/local, decisiones, TODOs y límites de GDPR en QC-Data.
+
+## Revisión 0.3 · Grassfeld, guía y separación de estudios
+
+- Inspeccionada Grassfeld en navegador; dirección Clear Listening, tipografías OFL locales e ilustración propia. Guía opcional de tres pasos validada con cierre, avance, Escape y reapertura.
+- 14 pruebas de navegador pasan y 18 Django (incluyendo importador nuevo); typecheck, build y check correctos. Audio/JS se mantiene con las 6 pruebas previas aprobadas.
+- Importador `import_study`: valida manifiestos, rechaza edición de protocolos existentes, evita habilitar recogida real y revierte el conjunto ante errores.
+- Añadido `SCROLL_DATA_DIR` para separar bases locales de distintos estudios.
+- Usuario confirmó dos repos y creó `scroll-q-mpc`; se verificó PUBLIC y se cambió a PRIVATE según su elección antes de subir material.
+- Primera revisión de Gitleaks: tres commits, sin secretos detectados. Se reforzaron exclusiones de archivos privados; no equivale a garantía absoluta.
+- Estudiadas opciones oficiales de hosting, costes completos y requisitos operativos; no se adquirieron recursos.
