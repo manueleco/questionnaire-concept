@@ -38,3 +38,7 @@ La configuración actual comparte un bloque de audio entre preguntas; se necesit
 ## Estudios en repositorios separados
 
 `manage.py import_study /ruta/study/manifest.json [--owner TU_USUARIO]` admite manifiestos de esquema 1 en modo demo. Incluyen `organization` (UUID/nombre), `study` (UUID/título/retención), `protocol` (UUID/versión/demo=true/consent_version) y `questions` con el formato declarativo habitual. Valida antes de publicar, usa transacción y rechaza cambios sobre el mismo protocolo. El repositorio privado MPC contiene un ejemplo ejecutable. La aprobación científica y el modo real son trabajos separados.
+
+## 2026-11-08 · Demo multilingüe
+
+Ver MULTILINGUAL.md: añadir traducciones completas por idioma en el manifiesto, con las mismas claves de opciones. Clonar/versionar para cambiar preguntas publicadas. Se ha añadido escucha mínima por protocolo.

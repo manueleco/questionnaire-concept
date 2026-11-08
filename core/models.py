@@ -50,6 +50,7 @@ class Protocol(models.Model):
     version = models.PositiveIntegerField()
     published = models.BooleanField(default=False)
     demo = models.BooleanField(default=True)
+    min_seconds_per_version = models.FloatField(default=1.2)
     consent_version = models.CharField(max_length=40, default='demo-consent-1')
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -111,9 +112,49 @@ class QuestionOption(models.Model):
             raise ValidationError('Published options are immutable.')
         return super().delete(*args, **kwargs)
 
+class QuestionTranslation(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='translations')
+    language = models.CharField(max_length=2, choices=[('es', 'Español'), ('ca', 'Català')])
+    title = models.CharField(max_length=200)
+    description = models.CharField(max_length=600, blank=True)
+    direction = models.CharField(max_length=100, blank=True)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['question', 'language'], name='unique_question_translation')]
+
+    def save(self, *args, **kwargs):
+        if self.question.protocol.published:
+            raise ValidationError('Published translations are immutable; clone a draft.')
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.question.protocol.published:
+            raise ValidationError('Published translations are immutable.')
+        return super().delete(*args, **kwargs)
+
+class OptionTranslation(models.Model):
+    option = models.ForeignKey(QuestionOption, on_delete=models.CASCADE, related_name='translations')
+    language = models.CharField(max_length=2, choices=[('es', 'Español'), ('ca', 'Català')])
+    label = models.CharField(max_length=100)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['option', 'language'], name='unique_option_translation')]
+
+    def save(self, *args, **kwargs):
+        if self.option.question.protocol.published:
+            raise ValidationError('Published translations are immutable; clone a draft.')
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        if self.option.question.protocol.published:
+            raise ValidationError('Published translations are immutable.')
+        return super().delete(*args, **kwargs)
+
 class ParticipantSession(models.Model):
     id = models.UUIDField(primary_key=True)
     protocol = models.ForeignKey(Protocol, on_delete=models.PROTECT, related_name='sessions')
+    language = models.CharField(max_length=2, default='en')
+    consent_language = models.CharField(max_length=2, default='en')
     withdrawal_hash = models.CharField(max_length=64)
     payload_hash = models.CharField(max_length=64)
     stimulus = models.CharField(max_length=40)
@@ -135,6 +176,7 @@ class LabelAssignment(models.Model):
         constraints = [models.UniqueConstraint(fields=['session', 'label'], name='unique_session_label'), models.UniqueConstraint(fields=['session', 'source'], name='unique_session_source'), models.CheckConstraint(condition=Q(label__in=['A', 'B', 'C']), name='valid_abc_label')]
 
 class Response(models.Model):
+    language = models.CharField(max_length=2, default='en')
     session = models.ForeignKey(ParticipantSession, on_delete=models.CASCADE, related_name='responses')
     question = models.ForeignKey(Question, on_delete=models.PROTECT)
     kind = models.CharField(max_length=10)

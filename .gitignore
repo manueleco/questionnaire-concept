@@ -37,3 +37,6 @@ client_secret*.json
 *.flac
 *.m4a
 *.aiff
+
+# Local agent runtime
+.agent/

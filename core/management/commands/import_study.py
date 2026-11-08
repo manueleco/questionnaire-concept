@@ -1,6 +1,7 @@
 """Import a versioned demo study supplied by a separate study repository."""
 import json
 import re
+import math
 from pathlib import Path
 from uuid import UUID
 from django.contrib.auth import get_user_model
@@ -8,6 +9,7 @@ from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction, IntegrityError
 from core.forms import QuestionForm
+from core.translations import validate_translations, store_translations, question_translations
 from core.models import Organization, Study, Protocol, Question, QuestionOption, Role, Membership
 
 FIELDS = ('key', 'type', 'title', 'description', 'direction', 'required', 'audio')
@@ -28,6 +30,10 @@ def read_manifest(path):
         raise ValueError('Protocol version must be a positive integer.')
     if not isinstance(data['questions'], list) or not 1 <= len(data['questions']) <= 100:
         raise ValueError('Use 1 to 100 questions.')
+    minimum = data['protocol'].get('min_seconds_per_version', 1.2)
+    if type(minimum) not in (int, float) or not math.isfinite(minimum) or not 0.25 <= minimum <= 30:
+        raise ValueError('Minimum listening must be between 0.25 and 30 seconds.')
+    data['protocol']['min_seconds_per_version'] = minimum
     questions = []
     for question in data['questions']:
         if any(type(question.get(k)) is not bool for k in ('required', 'audio')):
@@ -42,6 +48,7 @@ def read_manifest(path):
             raise ValueError('Invalid question: ' + form.errors.as_text())
         item = {k: form.cleaned_data[k] for k in FIELDS}
         item['options'] = sorted([list(o) for o in form.cleaned_data['parsed_options']])
+        item['translations'] = validate_translations(question.get('translations', {}), question)
         questions.append(item)
     if len({q['key'] for q in questions}) != len(questions):
         raise ValueError('Question IDs must be unique.')
@@ -73,13 +80,13 @@ class Command(BaseCommand):
         study.full_clean()
         if any(getattr(study, k) != v for k, v in study_values.items()):
             raise ValueError('Study ID already has different metadata.')
-        protocol_values = {'study': study, 'version': data['protocol']['version'], 'demo': True, 'consent_version': data['protocol']['consent_version']}
+        protocol_values = {'study': study, 'version': data['protocol']['version'], 'demo': True, 'consent_version': data['protocol']['consent_version'], 'min_seconds_per_version': data['protocol']['min_seconds_per_version']}
         protocol, created = Protocol.objects.get_or_create(id=data['protocol']['id'], defaults=protocol_values)
         protocol.full_clean()
         if any(getattr(protocol, k) != v for k, v in protocol_values.items()):
             raise ValueError('Protocol ID already has different metadata.')
         if not created:
-            stored = [{**{k: getattr(q, k) for k in FIELDS}, 'options': sorted([list(o) for o in q.options.values_list('key', 'label')])} for q in protocol.questions.all()]
+            stored = [{**{k: getattr(q, k) for k in FIELDS}, 'options': sorted([list(o) for o in q.options.values_list('key', 'label')]), 'translations': question_translations(q)} for q in protocol.questions.all()]
             if stored != questions or not protocol.published:
                 raise ValueError('Protocol already exists with different content. Create a new protocol ID and version.')
         else:
@@ -91,6 +98,7 @@ class Command(BaseCommand):
                     option = QuestionOption(question=question, key=key, label=label)
                     option.full_clean()
                     option.save()
+                store_translations(question, item['translations'])
             protocol.published = True
             protocol.save()
         for code, label in [('owner', 'Owner'), ('admin', 'Administrator'), ('researcher', 'Researcher'), ('analyst', 'Analyst'), ('viewer', 'Viewer')]:

@@ -6,6 +6,7 @@ from django.db import transaction
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 from .models import *
+from .translations import language, question_translations, store_translations
 
 def digest(value):
     return hashlib.sha256(value.encode()).hexdigest()
@@ -19,7 +20,7 @@ def membership(user, organization, roles=None):
     return m
 
 def protocol_dict(p):
-    return {'id': str(p.pk), 'title': p.study.title, 'demo': p.demo, 'questions': [{'id': q.key, 'type': q.type, 'title': q.title, 'description': q.description, 'direction': q.direction, 'required': q.required, 'audio': q.audio, 'options': [{'id': o.key, 'label': o.label} for o in q.options.all()]} for q in p.questions.prefetch_related('options')]}
+    return {'id': str(p.pk), 'title': p.study.title, 'demo': p.demo, 'minSecondsPerVersion': p.min_seconds_per_version, 'questions': [{'id': q.key, 'translations': question_translations(q), 'type': q.type, 'title': q.title, 'description': q.description, 'direction': q.direction, 'required': q.required, 'audio': q.audio, 'options': [{'id': o.key, 'label': o.label} for o in q.options.all()]} for q in p.questions.prefetch_related('options__translations', 'translations')]}
 
 def bounded_text(value, n):
     if not isinstance(value, str) or len(value) > n:
@@ -87,12 +88,12 @@ def save_response(data):
     listened = data.get('listened', {})
     if not all((isinstance(x, dict) for x in [answers, timings, listened])):
         raise ValidationError('Invalid answer data.')
-    questions = list(p.questions.prefetch_related('options'))
+    questions = list(p.questions.prefetch_related('options__translations', 'translations'))
     keys = {q.key for q in questions}
     if set(answers) - keys or set(timings) - keys:
         raise ValidationError('Question does not belong to this protocol.')
     listening = {l: number(listened.get(l, 0) * 1000, 3600000) for l in 'ABC' if type(listened.get(l, 0)) in (int, float)}
-    if len(listening) != 3 or (any((q.audio for q in questions)) and any((v < 1200 for v in listening.values()))):
+    if len(listening) != 3 or (any((q.audio for q in questions)) and any((v < p.min_seconds_per_version * 1000 for v in listening.values()))):
         raise ValidationError('Listen to every version first.')
     parsed = []
     for q in questions:
@@ -103,6 +104,9 @@ def save_response(data):
             continue
         if not isinstance(a, dict):
             raise ValidationError('Invalid answer.')
+        answer_language = language(a.get('language', 'en'))
+        if answer_language != 'en' and not any(row.language == answer_language for row in q.translations.all()):
+            raise ValidationError('Answer language has no versioned question translation.')
         kind = a.get('kind')
         order = []
         options = []
@@ -140,7 +144,7 @@ def save_response(data):
         last = date(t.get('lastAnsweredAt'), False)
         if first and last and (last < first):
             raise ValidationError('Answer timestamp precedes question.')
-        parsed.append((q, kind, text, scale, order, options, first, last, number(t.get('activeMs', 0), 86400000), number(t.get('elapsedMs', 0), 2592000000), number(t.get('changes', 0), 100000)))
+        parsed.append((q, answer_language, kind, text, scale, order, options, first, last, number(t.get('activeMs', 0), 86400000), number(t.get('elapsedMs', 0), 2592000000), number(t.get('changes', 0), 100000)))
     events = data.get('events', [])
     if not isinstance(events, list) or len(events) > 500:
         raise ValidationError('Too many events.')
@@ -153,10 +157,10 @@ def save_response(data):
         if idx is not None and (type(idx) != int or idx not in [0, 1, 2]):
             raise ValidationError('Invalid audio index.')
         parsed_events.append((question_map.get(e.get('question')), e['type'], date(e.get('at')), number(e.get('position', 0) * 1000, 60000) / 1000, idx))
-    s = ParticipantSession.objects.create(id=session_id, protocol=p, withdrawal_hash=digest(key), payload_hash=digest(json.dumps(data, sort_keys=True)), stimulus=stimulus, headphones=profile['headphones'], background=profile['background'], background_details=bounded_text(profile.get('details', ''), 200), consent_at=date(profile.get('consentAt')), client_started_at=date(data.get('createdAt')))
+    s = ParticipantSession.objects.create(id=session_id, protocol=p, language=language(data.get('language', 'en')), consent_language=language(data.get('consentLanguage', 'en')), withdrawal_hash=digest(key), payload_hash=digest(json.dumps(data, sort_keys=True)), stimulus=stimulus, headphones=profile['headphones'], background=profile['background'], background_details=bounded_text(profile.get('details', ''), 200), consent_at=date(profile.get('consentAt')), client_started_at=date(data.get('createdAt')))
     LabelAssignment.objects.bulk_create([LabelAssignment(session=s, label=l, source=mapping[i], listened_ms=listening[l], source_sha256=hashes[sources.index(mapping[i])] if hashes else '') for i, l in enumerate('ABC')])
-    for q, kind, text, scale, order, options, first, last, active, elapsed, changes in parsed:
-        r = Response.objects.create(session=s, question=q, kind=kind, text=text, scale=scale, first_seen_at=first, last_answered_at=last, active_ms=active, elapsed_ms=elapsed, changes=changes)
+    for q, answer_language, kind, text, scale, order, options, first, last, active, elapsed, changes in parsed:
+        r = Response.objects.create(session=s, question=q, language=answer_language, kind=kind, text=text, scale=scale, first_seen_at=first, last_answered_at=last, active_ms=active, elapsed_ms=elapsed, changes=changes)
         RankItem.objects.bulk_create([RankItem(response=r, label=l, position=i + 1) for i, l in enumerate(order)])
         SelectedOption.objects.bulk_create([SelectedOption(response=r, option=o) for o in options])
     PlaybackEvent.objects.bulk_create([PlaybackEvent(session=s, question=q, type=t, at=at, position=pos, source_index=idx) for q, t, at, pos, idx in parsed_events])
@@ -166,9 +170,10 @@ def save_response(data):
 def clone_protocol(p):
     Study.objects.select_for_update().get(pk=p.study_id)
     version = (p.study.protocols.order_by('-version').values_list('version', flat=True).first() or 0) + 1
-    copy = Protocol.objects.create(study=p.study, version=version, demo=p.demo, consent_version=p.consent_version)
-    for q in p.questions.prefetch_related('options'):
+    copy = Protocol.objects.create(study=p.study, version=version, demo=p.demo, consent_version=p.consent_version, min_seconds_per_version=p.min_seconds_per_version)
+    for q in p.questions.prefetch_related('options__translations', 'translations'):
         options = list(q.options.all())
+        translations = question_translations(q)
         q.pk = None
         q.protocol = copy
         q.save()
@@ -176,4 +181,6 @@ def clone_protocol(p):
             o.pk = None
             o.question = q
             o.save()
+        q._prefetched_objects_cache = {}
+        store_translations(q, translations)
     return copy

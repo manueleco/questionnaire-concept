@@ -1,5 +1,5 @@
 {
-  "id": "between-demo-1",
+  "id": "between-demo-2",
   "title": "A little different. A lot to feel.",
   "demo": true,
   "questions": [
@@ -8,36 +8,92 @@
       "type": "rank",
       "title": "Which version sounds loudest?",
       "description": "Think about how loud it feels, rather than the volume setting.",
-      "direction": "Loudest \u2192 quietest",
+      "direction": "Loudest → quietest",
       "required": true,
-      "audio": true
+      "audio": true,
+      "translations": {
+        "es": {
+          "title": "¿Qué versión suena más fuerte?",
+          "description": "Valora cuánto volumen percibes, no el ajuste de volumen del dispositivo.",
+          "direction": "De más fuerte a más suave",
+          "options": {}
+        },
+        "ca": {
+          "title": "Quina versió sona més fort?",
+          "description": "Valora el volum que perceps, no l’ajust de volum del dispositiu.",
+          "direction": "De més fort a més fluix",
+          "options": {}
+        }
+      }
     },
     {
       "id": "clarity",
       "type": "rank",
       "title": "Which version sounds clearest?",
       "description": "Listen for how distinctly you can hear the sounds in the music.",
-      "direction": "Clearest \u2192 least clear",
+      "direction": "Clearest → least clear",
       "required": true,
-      "audio": true
+      "audio": true,
+      "translations": {
+        "es": {
+          "title": "¿Qué versión suena más clara?",
+          "description": "Escucha con qué nitidez puedes distinguir los sonidos de la música.",
+          "direction": "De más clara a menos clara",
+          "options": {}
+        },
+        "ca": {
+          "title": "Quina versió sona més clara?",
+          "description": "Escolta amb quina nitidesa pots distingir els sons de la música.",
+          "direction": "De més clara a menys clara",
+          "options": {}
+        }
+      }
     },
     {
       "id": "harshness",
       "type": "rank",
       "title": "Which version sounds harshest?",
       "description": "Think about an abrasive or piercing quality in the sound.",
-      "direction": "Harshest \u2192 least harsh",
+      "direction": "Harshest → least harsh",
       "required": true,
-      "audio": true
+      "audio": true,
+      "translations": {
+        "es": {
+          "title": "¿Qué versión suena más áspera?",
+          "description": "Piensa en una cualidad abrasiva o penetrante del sonido.",
+          "direction": "De más áspera a menos áspera",
+          "options": {}
+        },
+        "ca": {
+          "title": "Quina versió sona més aspra?",
+          "description": "Pensa en una qualitat abrasiva o penetrant del so.",
+          "direction": "De més aspra a menys aspra",
+          "options": {}
+        }
+      }
     },
     {
       "id": "emotion",
       "type": "rank",
       "title": "Which expresses the most emotion?",
       "description": "Judge how strongly the music expresses emotion, rather than how you personally feel.",
-      "direction": "Most intense \u2192 least intense",
+      "direction": "Most intense → least intense",
       "required": true,
-      "audio": true
+      "audio": true,
+      "translations": {
+        "es": {
+          "title": "¿Cuál expresa más emoción?",
+          "description": "Valora con qué intensidad la música expresa emoción, no cómo te sientes personalmente.",
+          "direction": "De más intensa a menos intensa",
+          "options": {}
+        },
+        "ca": {
+          "title": "Quina expressa més emoció?",
+          "description": "Valora amb quina intensitat la música expressa emoció, no com et sents personalment.",
+          "direction": "De més intensa a menys intensa",
+          "options": {}
+        }
+      }
     },
     {
       "id": "reason",
@@ -63,7 +119,31 @@
           "id": "unsure",
           "label": "Not sure"
         }
-      ]
+      ],
+      "translations": {
+        "es": {
+          "title": "¿Qué contribuyó a esa impresión?",
+          "description": "Si una versión te pareció más expresiva, ¿qué cualidades contribuyeron? Elige las que quieras o salta la pregunta.",
+          "direction": "",
+          "options": {
+            "aggressive": "Áspera / agresiva",
+            "warm": "Cálida / suave",
+            "other": "Otra cualidad",
+            "unsure": "No lo sé"
+          }
+        },
+        "ca": {
+          "title": "Què va contribuir a aquesta impressió?",
+          "description": "Si una versió et va semblar més expressiva, quines qualitats hi van contribuir? Tria les que vulguis o omet la pregunta.",
+          "direction": "",
+          "options": {
+            "aggressive": "Aspra / agressiva",
+            "warm": "Càlida / suau",
+            "other": "Una altra qualitat",
+            "unsure": "No ho sé"
+          }
+        }
+      }
     },
     {
       "id": "genre",
@@ -71,7 +151,22 @@
       "title": "What's usually in your headphones?",
       "description": "Tell us the genres you enjoy, or anything else you noticed. Please leave out names and contact details.",
       "required": false,
-      "audio": false
+      "audio": false,
+      "translations": {
+        "es": {
+          "title": "¿Qué sueles escuchar?",
+          "description": "Cuéntanos qué géneros disfrutas o qué más has notado. No incluyas nombres ni datos de contacto.",
+          "direction": "",
+          "options": {}
+        },
+        "ca": {
+          "title": "Què acostumes a escoltar?",
+          "description": "Explica’ns quins gèneres t’agraden o què més has notat. No hi incloguis noms ni dades de contacte.",
+          "direction": "",
+          "options": {}
+        }
+      }
     }
-  ]
+  ],
+  "minSecondsPerVersion": 1.2
 }

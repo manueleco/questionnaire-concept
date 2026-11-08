@@ -46,3 +46,7 @@ Fuentes de arquitectura: [escalado de Django](https://docs.djangoproject.com/en/
 - Orgs/personal para ambos repositorios y futuros trabajos de este contexto.
 - UI 0.4: preguntas sobrias, menos ornamento y redundancia, dock compacto y CTA accesible en tarjetas largas.
 - Corregir el mínimo intrínseco de la waveform; comprobar scrollWidth por tarjeta y diálogo, no sólo por documento.
+
+## 2026-11-08 · Demo multilingüe
+
+Separar soporte reutilizable de idiomas (plataforma pública) de protocolo, compatibilidad y decisiones del equipo (estudio privado). Son ramas de trabajo: main y la demo publicada no se sustituyen en esta entrega. Idiomas ES/EN/CA confirmados; no publicar ni escribir en repositorio externo. Versionar traducciones y conservar IDs de respuesta.

@@ -29,7 +29,7 @@ def bootstrap(request):
 @require_GET
 def protocol_api(request, pk=None):
     qs = Protocol.objects.filter(published=True, demo=True).select_related('study')
-    p = get_object_or_404(qs, pk=pk) if pk else qs.order_by('created_at').first()
+    p = get_object_or_404(qs, pk=pk) if pk else qs.order_by('-created_at').first()
     if not p:
         raise Http404
     return JsonResponse(protocol_dict(p))
@@ -193,14 +193,14 @@ def export_csv(request, pk):
     rows = Response.objects.filter(session__protocol=p).select_related('session', 'question').prefetch_related('ranks', 'selections__option')
     out = io.StringIO()
     w = csv.writer(out)
-    w.writerow(['session_id', 'protocol_id', 'question', 'kind', 'answer', 'active_ms', 'elapsed_to_last_answer_ms', 'first_seen_at', 'last_answered_at', 'client_started_at', 'received_at', 'stimulus', 'A_source', 'B_source', 'C_source', 'headphones', 'musical_background'])
+    w.writerow(['session_id', 'protocol_id', 'question', 'kind', 'answer', 'active_ms', 'elapsed_to_last_answer_ms', 'first_seen_at', 'last_answered_at', 'client_started_at', 'received_at', 'stimulus', 'A_source', 'B_source', 'C_source', 'headphones', 'musical_background', 'language', 'consent_language', 'question_language'])
     count = 0
     assignments = {s.id: {a.label: a.source for a in s.assignments.all()} for s in p.sessions.prefetch_related('assignments')}
     for r in rows:
         value = ' > '.join((x.label for x in sorted(r.ranks.all(), key=lambda x: x.position))) if r.kind == 'rank' else '; '.join((x.option.key for x in r.selections.all())) if r.kind in ['single', 'multi'] else r.text or r.scale or r.kind
         s = r.session
         mapping = assignments[s.id]
-        w.writerow([csv_safe(v) for v in [s.pk, p.pk, r.question.key, r.kind, value, r.active_ms, r.elapsed_ms, r.first_seen_at, r.last_answered_at, s.client_started_at, s.received_at, s.stimulus, mapping.get('A'), mapping.get('B'), mapping.get('C'), s.headphones, s.background]])
+        w.writerow([csv_safe(v) for v in [s.pk, p.pk, r.question.key, r.kind, value, r.active_ms, r.elapsed_ms, r.first_seen_at, r.last_answered_at, s.client_started_at, s.received_at, s.stimulus, mapping.get('A'), mapping.get('B'), mapping.get('C'), s.headphones, s.background, s.language, s.consent_language, r.language]])
         count += 1
     ExportAudit.objects.create(protocol=p, actor=request.user, row_count=count)
     response = HttpResponse(out.getvalue(), content_type='text/csv')

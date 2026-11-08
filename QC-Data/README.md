@@ -59,3 +59,7 @@ La demo privada publicada utiliza una composición sintética creada en código.
 - `audio-inventory.json`, `audio-measurements.json`: mediciones de los archivos aportados.
 
 Actualizar estos documentos cuando cambie una decisión; distinguir implementación, propuesta e hipótesis. No guardar secretos, respuestas reales ni identificadores de participantes en los MDs.
+
+## 2026-11-08 · Demo multilingüe
+
+- `MULTILINGUAL.md`: idiomas, esquema de traducciones, exportación y límites de esta entrega.

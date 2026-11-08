@@ -1,4 +1,5 @@
 export type Answer = {
+    language?: 'en' | 'es' | 'ca';
     kind: 'rank' | 'tie' | 'unsure' | 'single' | 'multi' | 'text' | 'scale';
     order?: string[];
     value?: string;
@@ -12,6 +13,7 @@ export type Question = {
     direction?: string;
     required: boolean;
     audio: boolean;
+    translations?: Partial<Record<'es' | 'ca', { title: string; description: string; direction?: string; options?: Record<string, string> }>>;
     options?: {
         id: string;
         label: string;
@@ -22,6 +24,7 @@ export type Protocol = {
     title: string;
     demo: boolean;
     questions: Question[];
+    minSecondsPerVersion?: number;
 };
 export type Timing = {
     firstSeenAt: string;
@@ -32,6 +35,8 @@ export type Timing = {
 };
 export type Session = {
     id: string;
+    language?: 'en' | 'es' | 'ca';
+    consentLanguage?: 'en' | 'es' | 'ca';
     protocol: string;
     demo: boolean;
     createdAt: string;

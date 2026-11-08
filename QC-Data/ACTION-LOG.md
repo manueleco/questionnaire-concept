@@ -58,3 +58,7 @@ Cierre: publicación Grassfeld/guía confirmada como succeeded desde e29831b; Gi
 Movido estudio completo a Orgs/personal/scroll-q-mpc, reparadas rutas absolutas del venv; Django check, pip y referencia del submódulo funcionan. Reproducido desbordamiento de 79 px en las cuatro tarjetas auditivas a 320 px. Ajustada flexibilidad de la waveform y simplificada presentación móvil. Añadidas regresiones internas para las nueve tarjetas, diálogos y pantalla táctil corta. Hosting actualizado a Droplet por petición explícita.
 
 Verificación final de UI 0.4: typecheck/build correctos, 6 tests JS y 19 de navegador aprobados. Se corrigió el selector de la prueba de guía después de simplificar su texto. Capturas bajo `.playwright/`, excluidas de Git.
+
+## 2026-11-08 · Demo multilingüe
+
+Revisión externa sólo con GET del conector GitHub. Implementados catálogos propios, selector persistente, traducciones relacionales e idioma en sesión/consentimiento/respuesta. Nueva versión de demo sin modificar protocolos antiguos. Primer test Django detectó una sustitución textual incorrecta del mensaje del importador: corregida; nueva ejecución aprobada.

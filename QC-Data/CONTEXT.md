@@ -44,3 +44,7 @@ El usuario solicita tomar VELTO Fintech App Concept como referencia de layout, c
 El usuario pide trabajar en `Orgs` en general. Plataforma y estudio quedan como carpetas hermanas bajo `/Users/meco/MBP Files/Orgs/personal/`: `scroll-questionnaire` y `scroll-q-mpc`. El estudio se traslada desde Gits/personales conservando Git, entorno y datos locales. Coste prioritario: Droplet seleccionado; infraestructura pendiente.
 
 Feedback UI: saturación visual, poca invitación a responder y desbordamiento horizontal interno. Revisión móvil 0.4 reduce adornos, usa títulos Manrope y corrige el ancho del reproductor.
+
+## 2026-11-08 · Demo multilingüe
+
+El usuario confirma inglés, español y catalán. Quiere conciliar con el trabajo del equipo, sin competencia ni commits/pushes en el repo ajeno. Plataforma multilingüe en feat/multilingual-demo; propuesta de estudio en rama privada integration/team-f-demo. El detalle de conciliación queda en QC-Data del estudio privado.

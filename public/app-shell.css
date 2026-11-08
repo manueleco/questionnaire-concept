@@ -273,3 +273,25 @@ select, textarea, input[type=text], input[type=file] { min-width: 0; max-width: 
   .welcome .listening-banner { display: none; }
   .welcome .card h2 { font-size: 36px; }
 }
+
+/* Language names remain recognizable and touch targets survive longer labels. */
+.language-picker { margin: 0 0 0 auto; min-width: 0; }
+.language-picker select { width: auto; max-width: 116px; min-height: 44px; padding: 8px; margin: 0; border: 1px solid var(--color-rule); font-size: 16px; }
+.topbar { gap: 10px; }
+.top-caption { flex: 1; text-align: center; }
+.primary, .secondary, .quiet, .guide-link { max-width: 100%; white-space: normal; }
+#save-status { text-align: center; }
+@media (max-width: 39.99rem) {
+  #about { display: none; }
+  .language-picker { margin-inline-start: auto; }
+  .topbar { padding-inline: 20px; }
+  .quick-guide .guide-actions { flex-wrap: wrap; }
+  .session-strip { height: 32px; }
+  :root { --dock-height: calc(100px + env(safe-area-inset-bottom, 0px)); }
+}
+.mobile-nav button, #save-status, .step-counter, .pill, .player-top, .time, .top-caption, .prototype-tag, .guide-top, .guide-menu small { font-size: 11px; }
+
+@media (max-width: 39.99rem) {
+  .question-footer { position: sticky; bottom: 0; z-index: 1; padding-top: 8px; background: var(--color-white); }
+  .question-footer .continue-row { position: static; }
+}

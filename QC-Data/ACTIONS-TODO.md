@@ -54,3 +54,11 @@
 - Responsable del tratamiento/base jurídica y hosting: concretarlos con institución.
 - Derechos de los audios y consentimiento: aportar datos reales antes de reclutar.
 - No se han enviado mensajes a amigos, listas ni colaboradores.
+
+## 2026-11-08 · Demo multilingüe
+
+- [x] Demo participante en EN/ES/CA con idioma persistido.
+- [x] Traducciones de preguntas versionadas y clonables.
+- [ ] Revisión de español/catalán por hablantes y equivalencia del instrumento.
+- [ ] Editor visual y traducción del portal administrativo.
+- [ ] Acordar con el equipo protocolo, estímulos y contrato de persistencia; no tocar su repo hasta nueva autorización.
