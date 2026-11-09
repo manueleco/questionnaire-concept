@@ -1,6 +1,6 @@
 # Demo multilingüe
 
-2026-11-08. Idiomas confirmados por el usuario: inglés (`en`), español (`es`) y catalán (`ca`). Rama de plataforma: `feat/multilingual-demo`. Alcance: recorrido participante, navegación, guía, información/privacidad de demo, importación de audio, errores conocidos, preguntas y cierre. El portal Django administrativo sigue en inglés; no afirmar que toda la administración está traducida.
+2026-11-08. Idiomas confirmados por el usuario: inglés (`en`), español (`es`) y catalán (`ca`). Rama de plataforma: `mpc` (renombrada desde `feat/multilingual-demo` por petición del usuario). Alcance: recorrido participante, navegación, guía, información/privacidad de demo, importación de audio, errores conocidos, preguntas y cierre. El portal Django administrativo sigue en inglés; no afirmar que toda la administración está traducida.
 
 ## Selección y persistencia
 

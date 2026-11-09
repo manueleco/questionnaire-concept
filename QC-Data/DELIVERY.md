@@ -55,3 +55,9 @@ Validación: typecheck y build correctos; 6 tests JS y 19 tests de navegador cor
 Estudio trasladado a Orgs/personal/scroll-q-mpc; entorno Python y comprobación Django correctos tras reparación de rutas. Droplet elegido por coste, pendiente de contratar/desplegar. El hosting Sites continúa siendo una demo visual privada con almacenamiento del navegador.
 
 Publicación 0.4 confirmada: `1f4035fb2abe89e90689d8756f5d111d36158143`, despliegue `appgdep_6aeb6f38b3508191ab737aaf11d238b5`, estado succeeded. URL privada conservada: https://questionnaire-sound-study-meco.inventiveflag.chatgpt.site . Estudio privado actualizado y enviado en `bc3f012`, submódulo fijado a esa versión probada. Gitleaks no encontró secretos en cambios ni historial de ambos repositorios. Servidores temporales de QA detenidos al cerrar la entrega.
+
+## Entrega de rama mpc · 2026-11-09
+
+Ranking completa la tercera opción tras dos elecciones y conserva revisión, empate e incertidumbre. Audio en loop preservado. Brandbook 0.5 y acabado móvil con pie de pregunta que no tapa respuestas. EN/ES/CA conservados. Validación: typecheck/build, 9 pruebas JS y 26 de navegador correctas; véase UI-REVIEW-2026-11-09.md.
+
+Esta entrega corresponde sólo a la plataforma. No actualiza dependencias de estudios, no mezcla main y no publica la demo alojada. Vista local de plataforma en http://127.0.0.1:8317/?lang=es mientras esté activo el servidor de desarrollo. Guía de coordinación en COLLABORATION-WORKFLOW.md.

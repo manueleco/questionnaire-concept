@@ -50,3 +50,11 @@ Fuentes de arquitectura: [escalado de Django](https://docs.djangoproject.com/en/
 ## 2026-11-08 · Demo multilingüe
 
 Separar soporte reutilizable de idiomas (plataforma pública) de protocolo, compatibilidad y decisiones del equipo (estudio privado). Son ramas de trabajo: main y la demo publicada no se sustituyen en esta entrega. Idiomas ES/EN/CA confirmados; no publicar ni escribir en repositorio externo. Versionar traducciones y conservar IDs de respuesta.
+
+## 2026-11-09 · Ranking y acabado móvil
+
+- Rama `mpc`, sin prefijo `feat`, por petición del usuario; los registros históricos conservan sus nombres originales.
+- Completar la tercera posición tras dos elecciones distintas; permitir retirar y reordenar, reiniciar, empatar o indicar incertidumbre. No disparar avance automático.
+- Mantener loop y sincronía del motor existente.
+- Brandbook 0.5: superficies blancas sobre gris suave, azul para acciones/selección y tipografía nativa con alternativas locales. Identidad propia; sin activos comerciales copiados.
+- Este chat modifica sólo la plataforma pública. El estudio consume un commit fijado desde su propio chat.

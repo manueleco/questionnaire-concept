@@ -33,7 +33,7 @@ test('switching language preserves audio, rankings, timers and stores response l
   await page.locator('#language-select').selectOption('ca');
   await expect(q.locator('h2')).toHaveText(labels.ca.heading);
   await expect(q.locator('.play')).toHaveAttribute('aria-label',"Pausa l'àudio");
-  await q.locator('.rank-choice').nth(1).click();await q.locator('.rank-choice').nth(2).click();
+  await q.locator('.rank-choice').nth(1).click();await expect(q.locator('.rank-choice').nth(2)).toHaveAttribute('aria-pressed','true');
   const after=await page.evaluate(()=>JSON.parse(localStorage.getItem('scroll-questionnaire-demo-v1')!));
   expect(after.id).toBe(before.id);expect(after.mapping).toEqual(before.mapping);expect(after.answers.loudness.order).toEqual(['A','B','C']);
   expect(after.answers.loudness.language).toBe('ca');expect(after.consentLanguage).toBe('es');expect(after.timings.loudness.activeMs).toBeGreaterThanOrEqual(before.timings.loudness.activeMs);

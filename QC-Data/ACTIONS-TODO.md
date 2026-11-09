@@ -62,3 +62,12 @@
 - [ ] Revisión de español/catalán por hablantes y equivalencia del instrumento.
 - [ ] Editor visual y traducción del portal administrativo.
 - [ ] Acordar con el equipo protocolo, estímulos y contrato de persistencia; no tocar su repo hasta nueva autorización.
+
+## 2026-11-09 · Entrega de plataforma
+
+- [x] Renombrar rama a `mpc`.
+- [x] Ranking: completar tercera opción, mantener revisión y ausencia de salto automático.
+- [x] Conservar loop y cubrir cambio de versión al finalizar un ciclo.
+- [x] Actualizar brandbook 0.5 y documentar separación de chats.
+- [ ] Merge a `main` y publicación de demo: fuera de esta entrega de rama.
+- [ ] Adoptar versión probada en el estudio desde su chat privado; no modificarlo aquí.

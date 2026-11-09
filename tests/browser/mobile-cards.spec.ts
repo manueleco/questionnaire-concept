@@ -45,3 +45,29 @@ test('short touch viewport retains the start button and navigation', async ({ br
   await page.screenshot({ path: '.playwright/welcome-short-mobile.png' });
   await context.close();
 });
+
+
+test('compact translated ranking keeps answers and footer reachable without overlap', async ({page}) => {
+  await page.setViewportSize({width:320,height:740});
+  await page.goto('/?lang=es');
+  await page.getByRole('button',{name:'Vamos a escuchar'}).click();
+  const setup=page.locator('[data-page="1"]');
+  await setup.locator('select').nth(0).selectOption('over-ear');
+  await setup.locator('select').nth(1).selectOption('none');
+  for (const checkbox of await setup.locator('input[type="checkbox"]').all()) await checkbox.check();
+  await setup.getByRole('button',{name:'Empezar'}).click();
+  const question=page.locator('[data-page="2"]');
+  for (const choice of await question.locator('.rank-choice').all()) {
+    await choice.scrollIntoViewIfNeeded();
+    expect(await choice.evaluate(el => {
+      const r=el.getBoundingClientRect();
+      return [0.2,0.8].every(f => el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height*f)));
+    })).toBe(true);
+  }
+  await question.getByRole('button',{name:'Sin diferencia'}).click();
+  await expect(question.getByRole('button',{name:'Sin diferencia'})).toHaveAttribute('aria-pressed','true');
+  const next=question.getByRole('button',{name:'Continuar'});
+  await next.scrollIntoViewIfNeeded();
+  await expect(next).toBeInViewport({ratio:1});
+  await page.screenshot({path:'.playwright/compact-ranking-320.png'});
+});

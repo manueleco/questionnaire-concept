@@ -48,3 +48,7 @@ Feedback UI: saturación visual, poca invitación a responder y desbordamiento h
 ## 2026-11-08 · Demo multilingüe
 
 El usuario confirma inglés, español y catalán. Quiere conciliar con el trabajo del equipo, sin competencia ni commits/pushes en el repo ajeno. Plataforma multilingüe en feat/multilingual-demo; propuesta de estudio en rama privada integration/team-f-demo. El detalle de conciliación queda en QC-Data del estudio privado.
+
+## 2026-11-09 · Plataforma independiente
+
+Este chat trabaja exclusivamente en la plataforma reutilizable. La rama local/remota es `mpc`; sustituye el nombre anterior `feat/multilingual-demo`. Ranking automático de tercera posición, loop preservado y acabado visual 0.5. El estudio privado se mantiene desde otro chat y sólo debe consumir versiones verificadas. No se modifica ningún repositorio externo desde este trabajo.

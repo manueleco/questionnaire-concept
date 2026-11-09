@@ -63,3 +63,8 @@ Actualizar estos documentos cuando cambie una decisión; distinguir implementaci
 ## 2026-11-08 · Demo multilingüe
 
 - `MULTILINGUAL.md`: idiomas, esquema de traducciones, exportación y límites de esta entrega.
+
+## Entrega de interfaz 0.5
+
+- `UI-REVIEW-2026-11-09.md`: evidencia de revisión móvil y límites.
+- `COLLABORATION-WORKFLOW.md`: separación del trabajo de plataforma y estudios.

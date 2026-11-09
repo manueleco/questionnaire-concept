@@ -1,4 +1,4 @@
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V4
+/* Hallmark · pre-emit critique: P4 H5 E4 S4 R5 V4
    Scroll Questionnaire / Clear Listening. Participant app layer; see QC-Data/BRANDBOOK.md. */
 @font-face { font-family: "Scroll Display"; src: url('/fonts/BarlowCondensed-ExtraBold.ttf') format('truetype'); font-style: normal; font-weight: 800; font-display: swap; }
 @font-face { font-family: "Scroll Text"; src: url('/fonts/Manrope.ttf') format('truetype'); font-style: normal; font-weight: 200 800; font-display: swap; }
@@ -294,4 +294,73 @@ select, textarea, input[type=text], input[type=file] { min-width: 0; max-width: 
 @media (max-width: 39.99rem) {
   .question-footer { position: sticky; bottom: 0; z-index: 1; padding-top: 8px; background: var(--color-white); }
   .question-footer .continue-row { position: static; }
+}
+
+/* Premium refinement: quiet surfaces, clear selection and familiar controls.
+   Brand identity stays Scroll Questionnaire; no proprietary Apple assets. */
+:root {
+  --color-ink: #1d1d1f;
+  --color-muted: #515154;
+  --color-accent: #0066cc;
+  --color-accent-deep: #004f9e;
+  --color-focus: #0066cc;
+  --color-paper-2: #eaf3fc;
+  --color-surface: #f5f5f7;
+  --color-rule: #d2d2d7;
+  --color-banner: #ffffff;
+  --color-headphone: #0066cc;
+  --color-headphone-dark: #004f9e;
+  --font-body: -apple-system, BlinkMacSystemFont, "Scroll Text", "Segoe UI", sans-serif;
+  --font-display: var(--font-body);
+}
+body { background: var(--color-surface); }
+.topbar { background: var(--color-surface); }
+.brand { font-family: var(--font-body); font-size: 28px; font-weight: 750; letter-spacing: -.035em; }
+.top-caption { letter-spacing: .02em; }
+.card, .welcome .card { border-radius: 20px; background: var(--color-white); }
+.card h2 { font-weight: 600; letter-spacing: -.025em; }
+.welcome .card h2 { font-family: var(--font-body); font-size: clamp(32px, 4vw, 44px); font-weight: 650; line-height: 1.08; letter-spacing: -.035em; }
+.sidebar h1 { font-size: 38px; font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
+.sidebar .eyebrow, #info > .eyebrow { display: none; }
+.primary { background: var(--color-accent); border-radius: 14px; font-weight: 600; }
+.primary:hover { background: var(--color-accent-deep); }
+.primary:active { transform: scale(.985); }
+.secondary { background: var(--color-surface); color: var(--color-accent-deep); }
+.language-picker select { background: var(--color-white); border-color: var(--color-transparent); border-radius: 12px; }
+.player { padding: 14px; border-radius: 16px; }
+.audio-buttons { gap: 4px; padding: 4px; background: var(--color-rule); border-radius: 13px; }
+.version { border-radius: 9px; background: var(--color-transparent); }
+.version[aria-pressed=true] { color: var(--color-white); background: var(--color-accent); }
+.play { background: var(--color-ink); }
+.ranking-caption { display: flex; flex-direction: column; gap: 4px; font-size: 12px; }
+.rank-choice { min-height: 52px; border-radius: 12px; }
+.rank-choice[aria-pressed=true] { background: var(--color-paper-2); border-color: var(--color-accent); }
+.rank-num { font-family: var(--font-body); font-weight: 600; }
+.mobile-nav button { font-size: 12px; }
+.mobile-nav button[aria-current=page] { color: var(--color-accent); font-weight: 650; }
+.bottom-dock { border-top: 1px solid var(--color-rule); }
+.guide-link { color: var(--color-accent-deep); }
+.guide-art { background: var(--color-surface); }
+.guide-top, .guide-menu small, .guide-actions .quiet, .player-caption, .step-counter, .pill { font-size: 12px; }
+.welcome .card > .subtle-note { font-size: 11px; }
+::selection { background: var(--color-paper-2); color: var(--color-ink); }
+input, textarea { caret-color: var(--color-accent); }
+@media (max-width: 39.99rem) {
+  .page { padding: 10px 12px; }
+  .card, .welcome .card { padding: 20px; }
+  .welcome .card h2 { font-size: 34px; }
+  .listening-banner { height: 48px; margin-bottom: 16px; }
+  .headphone-art { height: 48px; width: 58px; }
+  .card-head { margin-bottom: 14px; }
+  .card > p { font-size: 15px; }
+}
+@media (max-width: 22rem) {
+  .card, .welcome .card { padding: 18px; }
+  .welcome .card h2 { font-size: 32px; }
+}
+@media (prefers-reduced-motion: reduce) { .primary:active { transform: none; } }
+
+/* Keep long translated answers clear of the footer on compact screens. */
+@media (max-width: 39.99rem) {
+  .question-footer { position: static; }
 }

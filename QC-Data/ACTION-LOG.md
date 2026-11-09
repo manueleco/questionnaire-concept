@@ -62,3 +62,7 @@ Verificación final de UI 0.4: typecheck/build correctos, 6 tests JS y 19 de nav
 ## 2026-11-08 · Demo multilingüe
 
 Revisión externa sólo con GET del conector GitHub. Implementados catálogos propios, selector persistente, traducciones relacionales e idioma en sesión/consentimiento/respuesta. Nueva versión de demo sin modificar protocolos antiguos. Primer test Django detectó una sustitución textual incorrecta del mensaje del importador: corregida; nueva ejecución aprobada.
+
+## 2026-11-09 · Ranking y cierre visual de plataforma
+
+Verificado estado en rama mpc y cambios heredados. Completado brandbook 0.5, actualizadas referencias vigentes a rama y documentada separación de chats. Inspección móvil detectó pie sticky solapando respuestas a 320 px: corregido y cubierta la interacción en regresión. Typecheck/build correctos, 9 pruebas JS y 26 de navegador correctas. Evidencia y límites en UI-REVIEW-2026-11-09.md. No se trabaja en repositorios privados ni de colaboradores.

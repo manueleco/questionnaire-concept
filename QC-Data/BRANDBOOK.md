@@ -1,6 +1,6 @@
-# Scroll Questionnaire · Brandbook 0.4
+# Scroll Questionnaire · Brandbook 0.5
 
-Fecha: 2026-11-04. Dirección vigente: **Clear Listening** (sustituye Quiet Current por petición del usuario). Documento editable y fuente de decisiones visuales del producto; los tokens ejecutables de la experiencia participante están en `public/app-shell.css`.
+Actualizado: 2026-11-09. Dirección vigente: **Clear Listening** (sustituye Quiet Current por petición del usuario). Documento editable y fuente de decisiones visuales del producto; los tokens ejecutables de la experiencia participante están en `public/app-shell.css`.
 
 ## Identidad y promesa
 
@@ -12,7 +12,7 @@ Personalidad: tranquila, cercana, precisa, curiosa. Lenguaje directo y respetuos
 
 ## Referencia y decisiones propias
 
-Referencia vigente: [Grassfeld](https://www.grassfeld.com), inspeccionada visualmente en móvil. Se adoptan titulares compactos de gran peso, superficies azul claro, texto negro y menos bordes. Se crea una ilustración SVG propia de auriculares. No se copian logotipo, material visual, afirmaciones de seguridad ni tipografías comerciales del referente. La estructura de navegación inferior inspirada antes en Velto se mantiene por familiaridad.
+Referencia inicial: [Grassfeld](https://www.grassfeld.com), inspeccionada visualmente en móvil. La revisión 0.5 conserva la estructura y simplifica su presentación con controles y tipografía de aspecto nativo, siguiendo la petición de una experiencia inspirada en Apple. Se crea una ilustración SVG propia de auriculares. No se copian logotipo, material visual, afirmaciones de seguridad ni tipografías comerciales del referente. La estructura de navegación inferior inspirada antes en Velto se mantiene por familiaridad.
 
 La petición de colores que inviten a participar se interpreta como una **hipótesis de comodidad y legibilidad**, no como un efecto psicológico demostrado. No hay un color que garantice confianza o mayor participación en toda cultura o población. Validar la propuesta con pruebas de comprensión, abandono, fatiga y accesibilidad; no atribuir diferencias de resultados al color sin un diseño experimental adecuado.
 
@@ -20,33 +20,36 @@ La petición de colores que inviten a participar se interpreta como una **hipót
 
 | Token | Color | Uso |
 |---|---|---|
-| `--color-paper` | `#FFFFFF` | Fondo general, descanso visual |
+| `--color-paper` | `#FFFFFF` | Superficie base blanca; el fondo de página usa `--color-surface` |
+| `--color-surface` | `#F5F5F7` | Fondo de página y controles secundarios |
 | `--color-white` | `#FFFFFF` | Superficies de pregunta y navegación |
-| `--color-ink` | `#202126` | Texto principal, CTA y pestaña activa |
-| `--color-muted` | `#555A64` | Texto secundario legible |
-| `--color-accent` | `#365E94` | Firma, foco, progreso, confirmación |
-| `--color-accent-deep` | `#264A77` | Hover de acción principal |
-| `--color-paper-2` | `#E7F0F5` | Selección suave y etiquetas |
+| `--color-ink` | `#1D1D1F` | Texto principal y botón de reproducción |
+| `--color-muted` | `#515154` | Texto secundario legible |
+| `--color-accent` | `#0066CC` | Acción principal, foco, progreso y selección |
+| `--color-accent-deep` | `#004F9E` | Hover de acción principal |
+| `--color-paper-2` | `#EAF3FC` | Selección suave y etiquetas |
 | `--color-cyan` | `#CCE0EE` | Acento azul decorativo; no texto sobre blanco |
-| `--color-rule` | `#DFE3E8` | Separadores decorativos, no único indicador de estado |
-| `--color-banner` | `#E5F1F5` | Panel de escucha de bienvenida |
+| `--color-rule` | `#D2D2D7` | Separadores decorativos, no único indicador de estado |
+| `--color-banner` | `#FFFFFF` | Panel de escucha de bienvenida |
 | `--color-error` | `#A32939` | Error con mensaje de texto |
 
 Texto normal: objetivo WCAG AA 4.5:1. Foco/indicadores esenciales: 3:1. Las líneas decorativas suaves no sustituyen los estados accesibles. A/B/C comparten colores, tamaño y peso: el color no codifica condición experimental. Estado seleccionado con borde/contraste y `aria-pressed`; oído con marca y etiqueta accesible. La ilustración de auriculares de bienvenida es decorativa, no representa una medición de audio.
 
 ## Tipografía e iconos
 
-Firma y bienvenida: Barlow Condensed ExtraBold, bajo SIL OFL; preguntas y cuerpo: Manrope variable, bajo SIL OFL. Ambas se sirven desde `public/fonts/`, sin solicitudes a Google Fonts desde el navegador del participante. Las licencias acompañan los archivos. Fuente de distribución: repositorio oficial [google/fonts](https://github.com/google/fonts). Fuentes de reserva del sistema si no cargan. No se utiliza Right Grotesk, la tipografía comercial observada en Grassfeld.
+Tipografía del sistema mediante `-apple-system, BlinkMacSystemFont`, con Manrope local (`Scroll Text`), Segoe UI y sans-serif como alternativas. Firma, bienvenida, preguntas y cuerpo comparten familia; la jerarquía depende de tamaño, peso y espaciado. No se descarga ni redistribuye San Francisco. La apariencia exacta puede variar entre sistemas operativos.
 
-Titulares de preguntas 24–30 px, bienvenida 36–52 px, cuerpo 14–15 px, botones 14 px, auxiliares 10–12 px. Las preguntas conservan prioridad sobre instrucciones y estado. En pantallas pequeñas se reduce espacio ornamental antes de reducir legibilidad.
+Manrope y Barlow Condensed permanecen disponibles en `public/fonts/`, bajo SIL OFL, con sus licencias; Barlow ya no dirige los titulares de esta revisión. Sin solicitudes a Google Fonts desde el navegador. Fuente original de distribución: repositorio oficial [google/fonts](https://github.com/google/fonts). No se utiliza Right Grotesk ni se copian activos de Apple.
+
+Titulares de preguntas 24–30 px, bienvenida 32–44 px, cuerpo 14–15 px, botones 14 px, auxiliares 10–12 px. Las preguntas conservan prioridad sobre instrucciones y estado. En pantallas pequeñas se reduce espacio ornamental antes de reducir legibilidad.
 
 Iconos SVG de trazo de 1.7 px, vista 24×24: casa, auriculares, progreso e información. Mostrar siempre etiquetas, sin depender sólo de iconos. No mezclar emojis coloridos ni bibliotecas de estilos distintos en navegación.
 
 ## Componentes
 
-- **CTA:** fondo negro, texto blanco, radio 12 px, altura mínima 48 px; hover azul oscuro, presión sutil 0.98, sin sombra dura ni efecto 3D. Cargando: etiqueta explícita y deshabilitado; error: mensaje contiguo y reintento. Foco visible de 3 px.
-- **Botón secundario:** fondo gris verdoso, radio 12 px, sin competir con la acción principal.
-- **Tarjeta:** fondo blanco para preguntas y azul claro para bienvenida, radio 20 px en móvil, sin sombra ni contorno ornamental, padding 18–30 px. Tarjetas A/B/C y sus opciones son equivalentes visualmente.
+- **CTA:** fondo azul, texto blanco, radio 14 px, altura mínima 48 px; hover azul oscuro, presión sutil 0.985, sin sombra dura ni efecto 3D. Cargando: etiqueta explícita y deshabilitado; error: mensaje contiguo y reintento. Foco visible de 3 px.
+- **Botón secundario:** fondo gris neutro y texto azul oscuro, radio 12 px, sin competir con la acción principal.
+- **Tarjeta:** fondo blanco para preguntas y bienvenida, radio 20 px en móvil, sin sombra ni contorno ornamental, padding 18–30 px. Tarjetas A/B/C y sus opciones son equivalentes visualmente.
 - **Barra inferior:** cuatro destinos, alto táctil mínimo 50 px por tab. Inicio y Escucha navegan; Progreso abre lista de pasos; Info abre explicación/privacidad/audio. No se muestran como pestañas seleccionadas los diálogos temporales. Margen seguro inferior del dispositivo.
 - **Progreso:** posición en el recorrido y número real de preguntas contestadas, sin confundir visitas con respuestas. Preguntas futuras deshabilitadas hasta completar el paso actual.
 - **Campos:** etiqueta visible, fondo suave, radio 12 px, mensajes concretos. «Cannot judge» y «No difference» son respuestas legítimas; no degradarlas visualmente.
@@ -75,6 +78,17 @@ Guía opcional de tres pasos: menú inferior; responder y desplazarse; reproduci
 
 ## Revisión móvil 0.4
 
-Reducir densidad: una frase de bienvenida, ilustración pequeña (omitida en pantallas bajas), títulos de pregunta más tranquilos y guía opcional. Eliminar las flechas duplicadas del dock, conservar estado de guardado legible y cuatro destinos con etiquetas. El CTA de pregunta permanece accesible con posición sticky dentro de la tarjeta.
+Reducir densidad: una frase de bienvenida, ilustración pequeña (omitida en pantallas bajas), títulos de pregunta más tranquilos y guía opcional. Eliminar las flechas duplicadas del dock, conservar estado de guardado legible y cuatro destinos con etiquetas. El CTA de pregunta permanece accesible mediante desplazamiento interno; desde la revisión 0.5 el pie de las preguntas sigue el flujo normal para no tapar opciones en pantallas compactas.
 
 El reproductor usa `min-width: 0` y barras flexibles: no depender del recorte horizontal de la página. Regresión observada antes del arreglo: tarjeta de audio con clientWidth 296 y scrollWidth 375 a viewport 320. Verificar dimensiones internas de todas las tarjetas y diálogos, además de la raíz. Opciones de texto largo pueden envolver para conservar accesibilidad y autoría flexible; no truncar respuestas.
+
+
+## Revisión 0.5 · controles y ranking — 2026-11-09
+
+- A/B/C se presenta como un control segmentado; sólo la selección actual usa azul. Las condiciones experimentales siguen ciegas y visualmente equivalentes.
+- Al elegir dos posiciones distintas, se completa la tercera con la opción restante. Se conservan las seis permutaciones posibles. Pulsar una opción seleccionada la retira, permitiendo corregir el orden; reiniciar lo vacía. Empate e incertidumbre siguen disponibles.
+- No se avanza automáticamente al responder. La acción Continuar o el desplazamiento explícito controlan el avance, una vez satisfechos los requisitos del protocolo.
+- El audio conserva el loop y el reloj compartido al cambiar A/B/C. El ajuste visual no cambia el motor, los tiempos ni el requisito de escucha.
+- EN/ES/CA incluyen la instrucción del ranking. La navegación inferior mantiene etiquetas y la guía sigue siendo opcional.
+
+Este acabado aplica al participante; no rediseña el portal administrativo. La revisión visual y la evidencia de pruebas se registran en `UI-REVIEW-2026-11-09.md`.

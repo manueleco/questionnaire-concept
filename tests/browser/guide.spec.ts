@@ -24,7 +24,7 @@ test('short guide closes, advances and can be reopened from Info', async ({ page
 
 test('fonts are local and unknown assets remain inaccessible', async ({ page, request }) => {
   await page.goto('/');
-  await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => document.fonts.load('800 44px "Scroll Display"'));
   expect(await page.evaluate(() => document.fonts.check('800 44px "Scroll Display"'))).toBe(true);
   expect((await request.get('/fonts/BarlowCondensed-ExtraBold.ttf')).status()).toBe(200);
   expect((await request.get('/fonts/settings.py')).status()).toBe(404);
